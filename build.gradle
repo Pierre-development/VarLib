@@ -1,12 +1,32 @@
 plugins {
     id 'java-library'
 }
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 group 'fr.varchar'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
+}
+
+task sourcesJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar) {
+    classifier 'javadoc'
+    from javadoc
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
 }
 
 dependencies {
@@ -17,4 +37,60 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact tasks.sourcesJar
+            artifact tasks.javadocJar
+
+            pom {
+                groupId = project.group
+                version = project.version
+                artifactId = 'varlib'
+                name = project.name
+                description = ''
+                url = 'https://github.com/Pierre-development/VarLib'
+
+                scm {
+                    connection = 'scm:git:git://github.com/Pierre-development/VarLib.git'
+                    developerConnection = 'scm:git:ssh://github.com:Pierre-development/VarLib.git'
+                    url = 'https://github.com/Pierre-development/VarLibree/master'
+                }
+
+                licenses {
+                    license {
+                        name = 'MIT license'
+                        url = 'https://github.com/Pierre-development/VarLib/blob/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'varchar'
+                        name = 'VarChar'
+                        email = 'sddslebg@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
 }

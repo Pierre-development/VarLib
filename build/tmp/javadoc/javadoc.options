@@ -1,0 +1,17 @@
+-classpath '/home/varchar/Bureau/Dev Java/VarLib/build/classes/java/main:/home/varchar/Bureau/Dev Java/VarLib/build/resources/main:/home/varchar/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.6/9180733b7df8542621dc12e21e87557e8c99b8cb/gson-2.8.6.jar'
+-d '/home/varchar/Bureau/Dev Java/VarLib/build/docs/javadoc'
+-doctitle 'VarLib 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'VarLib 1.0 API'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/util/Util.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/GameLauncher.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/launching/types/Type.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/launching/types/VersionType.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/responses/AuthenticateResponse.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/responses/RefreshResponse.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/Authenticator.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/GameAuthenticator.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/Utils.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/requests/Requester.java'
+'/home/varchar/Bureau/Dev Java/VarLib/src/main/java/fr/varchar/varlib/authenticate/Profile.java'
