@@ -1,7 +1,7 @@
 {
   "formatVersion": "1.1",
   "component": {
-    "group": "fr.varchar",
+    "group": "io.github.pierre-development",
     "module": "varlib",
     "version": "1.0",
     "attributes": {
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "3vgfcep4yncc3pv6u35o5domzq"
+      "buildId": "amwyiptlgbgxfc6qnlzhekvgvy"
     }
   },
   "variants": [
@@ -38,10 +38,10 @@
           "name": "varlib-1.0.jar",
           "url": "varlib-1.0.jar",
           "size": 19377,
-          "sha512": "280a450530492b226cc85bd087409e63e9b602c71de7af2c5310900b017da8f4ee0495f4dbb05f94809e33b42deb136e378d3182044727b34e3d3c124f8e6de1",
-          "sha256": "7c99c80c734bcec8c8625a8be0c0e378a4efabad016d155fdac544d9a866c48e",
-          "sha1": "bf121595d2adf2e43be54346555ae39b24c208bf",
-          "md5": "7bb6a91df1d0ff680cad8a1eabc35465"
+          "sha512": "e9daa0bc02dd5f9b3e6ca061af5ce3909b14f5289022da274b027cf0be12a1f13ea304b0c93880da6be8f6bbe0ba6c671e6af661475e879468ea61603b3e1f22",
+          "sha256": "b7543c6319791a42b8d69a09f54e4d4134aac79b4d1988a3c8c84ed541ddde6a",
+          "sha1": "cf271a155b2b53f906999cfb1a41232e459be47e",
+          "md5": "2e4d933c79eec6e6c5fea792b4ba4706"
         }
       ]
     },
@@ -68,10 +68,10 @@
           "name": "varlib-1.0.jar",
           "url": "varlib-1.0.jar",
           "size": 19377,
-          "sha512": "280a450530492b226cc85bd087409e63e9b602c71de7af2c5310900b017da8f4ee0495f4dbb05f94809e33b42deb136e378d3182044727b34e3d3c124f8e6de1",
-          "sha256": "7c99c80c734bcec8c8625a8be0c0e378a4efabad016d155fdac544d9a866c48e",
-          "sha1": "bf121595d2adf2e43be54346555ae39b24c208bf",
-          "md5": "7bb6a91df1d0ff680cad8a1eabc35465"
+          "sha512": "e9daa0bc02dd5f9b3e6ca061af5ce3909b14f5289022da274b027cf0be12a1f13ea304b0c93880da6be8f6bbe0ba6c671e6af661475e879468ea61603b3e1f22",
+          "sha256": "b7543c6319791a42b8d69a09f54e4d4134aac79b4d1988a3c8c84ed541ddde6a",
+          "sha1": "cf271a155b2b53f906999cfb1a41232e459be47e",
+          "md5": "2e4d933c79eec6e6c5fea792b4ba4706"
         }
       ]
     }

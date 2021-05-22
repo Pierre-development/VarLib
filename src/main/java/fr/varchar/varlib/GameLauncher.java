@@ -13,7 +13,7 @@ import java.util.List;
 public class GameLauncher {
 
     private final File dir;
-    private final List<String> vmArgs = new ArrayList<>();
+    private final List<String> args = new ArrayList<>();
     private final String version;
     private final File assetsDir;
     private final File nativesDir;
@@ -21,40 +21,47 @@ public class GameLauncher {
     private final File minecraftClient;
     private final VersionType versionType;
     private final Type type;
+    private String fmlForgeVersion;
+    private String fmlmcVersion;
+    private String fmlmcpVersion;
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type) {
-        if(System.getProperty("os.name").startsWith("Win")) {
+
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
+        if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = new File(System.getenv("appdata") + File.separator + "." + dir);
         } else {
             this.dir = new File(System.getProperty("user.home") + File.separator + "." + dir);
         }
 
-        this.assetsDir = new File(this.dir.getAbsolutePath() + File.separator + "assets");
-        this.nativesDir = new File(this.dir.getAbsolutePath() + File.separator + "natives");
-        this.librariesDir = new File(this.dir.getAbsolutePath() + File.separator + "libraries");
-        this.minecraftClient = new File(this.dir.getAbsolutePath() + File.separator + "client.jar");
+        this.assetsDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getAssetsDir());
+        this.nativesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getNativesDir());
+        this.librariesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getLibrariesDir());
+        this.minecraftClient = new File(this.dir.getAbsolutePath() + File.separator + folderType.getMinecraftClient());
+
         this.versionType = versionType;
         this.type = type;
         this.version = version;
+    }
 
-
-
-
-
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType);
+        this.fmlForgeVersion = fmlForgeVersion;
+        this.fmlmcVersion = fmlmcVersion;
+        this.fmlmcpVersion = fmlmcpVersion;
     }
 
     public void launch(GameAuthenticator gameAuthenticator) throws IOException {
-        ProcessBuilder processBuilder = new ProcessBuilder(vmArgs);
+        ProcessBuilder processBuilder = new ProcessBuilder(args);
         processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
         Util.checkDirs(this);
-        vmArgs.addAll(this.type.getArgs(this));
+        args.addAll(this.type.getArgs(this));
 
-        vmArgs.addAll(this.versionType.getArgs(this, gameAuthenticator));
+        args.addAll(this.versionType.getArgs(this, gameAuthenticator));
 
         final StringBuilder sb = new StringBuilder();
-        for(String string : vmArgs) {
+        for (String string : args) {
             sb.append(string + " ");
         }
 
@@ -93,5 +100,17 @@ public class GameLauncher {
 
     public VersionType getVersionType() {
         return versionType;
+    }
+
+    public String getFmlForgeVersion() {
+        return fmlForgeVersion;
+    }
+
+    public String getFmlmcVersion() {
+        return fmlmcVersion;
+    }
+
+    public String getFmlmcpVersion() {
+        return fmlmcpVersion;
     }
 }

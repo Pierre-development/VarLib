@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class VersionType {
 
-    public static final VersionType V1_7_10 = new VersionType() {
+    public static final VersionType VERSION_1_7_10 = new VersionType() {
         @Override
         public List<String> getArgs(GameLauncher gameLauncher, GameAuthenticator gameAuthenticator) {
             final List<String> args = new ArrayList<>();
@@ -46,7 +46,7 @@ public abstract class VersionType {
         }
     };
 
-    public static final VersionType V1_8_HIGHER = new VersionType() {
+    public static final VersionType VERSION_1_8_HIGHER = new VersionType() {
         @Override
         public List<String> getArgs(GameLauncher gameLauncher, GameAuthenticator gameAuthenticator) {
             final List<String> args = new ArrayList<>();
@@ -96,7 +96,7 @@ public abstract class VersionType {
             args.add(gameLauncher.getDir().getAbsolutePath());
 
             args.add("--assetsDir");
-            args.add(gameLauncher.getDir().getAbsolutePath());
+            args.add(gameLauncher.getAssetsDir().getAbsolutePath());
 
             args.add("--assetIndex");
             args.add(gameLauncher.getVersion());
@@ -117,16 +117,16 @@ public abstract class VersionType {
                 args.add("fmlclient");
 
                 args.add("--fml.forgeVersion");
-                args.add("34.1.23");
+                args.add(gameLauncher.getFmlForgeVersion());
 
                 args.add("--fml.mcVersion");
-                args.add("1.16.3");
+                args.add(gameLauncher.getFmlmcVersion());
 
                 args.add("--fml.forgeGroup");
                 args.add("net.minecraftforge");
 
                 args.add("--fml.mcpVersion");
-                args.add("20200911.084530");
+                args.add(gameLauncher.getFmlmcpVersion());
             }
             return args;
         }
