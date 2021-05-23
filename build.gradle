@@ -57,7 +57,7 @@ publishing {
                 scm {
                     connection = 'scm:git:git://github.com/Pierre-development/VarLib.git'
                     developerConnection = 'scm:git:ssh://github.com:Pierre-development/VarLib.git'
-                    url = 'https://github.com/Pierre-development/VarLibree/master'
+                    url = 'https://github.com/Pierre-development/VarLib/master'
                 }
 
                 licenses {

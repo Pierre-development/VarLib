@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -127,10 +127,21 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-">GameLauncher</a></span>(java.lang.String&nbsp;dir,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-fr.varchar.varlib.FolderType-">GameLauncher</a></span>(java.lang.String&nbsp;dir,
             java.lang.String&nbsp;version,
             <a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a>&nbsp;versionType,
-            <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type)</code>&nbsp;</td>
+            <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type,
+            <a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib">FolderType</a>&nbsp;folderType)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-fr.varchar.varlib.FolderType-java.lang.String-java.lang.String-java.lang.String-">GameLauncher</a></span>(java.lang.String&nbsp;dir,
+            java.lang.String&nbsp;version,
+            <a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a>&nbsp;versionType,
+            <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type,
+            <a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib">FolderType</a>&nbsp;folderType,
+            java.lang.String&nbsp;fmlForgeVersion,
+            java.lang.String&nbsp;fmlmcVersion,
+            java.lang.String&nbsp;fmlmcpVersion)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -156,30 +167,42 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getDir--">getDir</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getFmlForgeVersion--">getFmlForgeVersion</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getFmlmcpVersion--">getFmlmcpVersion</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getFmlmcVersion--">getFmlmcVersion</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getLibrariesDir--">getLibrariesDir</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getMinecraftClient--">getMinecraftClient</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getNativesDir--">getNativesDir</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getType--">getType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getVersion--">getVersion</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#getVersionType--">getVersionType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../fr/varchar/varlib/GameLauncher.html#launch-fr.varchar.varlib.authenticate.GameAuthenticator-">launch</a></span>(<a href="../../../fr/varchar/varlib/authenticate/GameAuthenticator.html" title="class in fr.varchar.varlib.authenticate">GameAuthenticator</a>&nbsp;gameAuthenticator)</code>&nbsp;</td>
 </tr>
@@ -205,7 +228,20 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-">
+<a name="GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-fr.varchar.varlib.FolderType-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GameLauncher</h4>
+<pre>public&nbsp;GameLauncher(java.lang.String&nbsp;dir,
+                    java.lang.String&nbsp;version,
+                    <a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a>&nbsp;versionType,
+                    <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type,
+                    <a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib">FolderType</a>&nbsp;folderType)</pre>
+</li>
+</ul>
+<a name="GameLauncher-java.lang.String-java.lang.String-fr.varchar.varlib.launching.types.VersionType-fr.varchar.varlib.launching.types.Type-fr.varchar.varlib.FolderType-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -214,7 +250,11 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;GameLauncher(java.lang.String&nbsp;dir,
                     java.lang.String&nbsp;version,
                     <a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a>&nbsp;versionType,
-                    <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type)</pre>
+                    <a href="../../../fr/varchar/varlib/launching/types/Type.html" title="class in fr.varchar.varlib.launching.types">Type</a>&nbsp;type,
+                    <a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib">FolderType</a>&nbsp;folderType,
+                    java.lang.String&nbsp;fmlForgeVersion,
+                    java.lang.String&nbsp;fmlmcVersion,
+                    java.lang.String&nbsp;fmlmcpVersion)</pre>
 </li>
 </ul>
 </li>
@@ -305,10 +345,37 @@ extends java.lang.Object</pre>
 <a name="getVersionType--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getVersionType</h4>
 <pre>public&nbsp;<a href="../../../fr/varchar/varlib/launching/types/VersionType.html" title="class in fr.varchar.varlib.launching.types">VersionType</a>&nbsp;getVersionType()</pre>
+</li>
+</ul>
+<a name="getFmlForgeVersion--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFmlForgeVersion</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getFmlForgeVersion()</pre>
+</li>
+</ul>
+<a name="getFmlmcVersion--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFmlmcVersion</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getFmlmcVersion()</pre>
+</li>
+</ul>
+<a name="getFmlmcpVersion--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getFmlmcpVersion</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getFmlmcpVersion()</pre>
 </li>
 </ul>
 </li>
@@ -338,7 +405,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../fr/varchar/varlib/FolderType.html" title="class in fr.varchar.varlib"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

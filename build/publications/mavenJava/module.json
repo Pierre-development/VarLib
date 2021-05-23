@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "amwyiptlgbgxfc6qnlzhekvgvy"
+      "buildId": "cnhu7txemjai3otg2lrv2adi7e"
     }
   },
   "variants": [
@@ -37,11 +37,11 @@
         {
           "name": "varlib-1.0.jar",
           "url": "varlib-1.0.jar",
-          "size": 19377,
-          "sha512": "e9daa0bc02dd5f9b3e6ca061af5ce3909b14f5289022da274b027cf0be12a1f13ea304b0c93880da6be8f6bbe0ba6c671e6af661475e879468ea61603b3e1f22",
-          "sha256": "b7543c6319791a42b8d69a09f54e4d4134aac79b4d1988a3c8c84ed541ddde6a",
-          "sha1": "cf271a155b2b53f906999cfb1a41232e459be47e",
-          "md5": "2e4d933c79eec6e6c5fea792b4ba4706"
+          "size": 20354,
+          "sha512": "27acf530fa08e92e03e68a8d69969a4f60a147779ff65118c0bfe21a73e7197b9e5c0fd0a5ccaaeee0a1fa9564af0d92398c9683d64cdbe3010c5435097da278",
+          "sha256": "8819c8741a8b3bdf1b6b985a898a25400990c7bb55ead0c8ec842b53b0a50e18",
+          "sha1": "613f433d5d58121364676cc77d0a2e4f4cc97e34",
+          "md5": "98f4062a8861f07d2db4e4de0b0f01d7"
         }
       ]
     },
@@ -67,11 +67,11 @@
         {
           "name": "varlib-1.0.jar",
           "url": "varlib-1.0.jar",
-          "size": 19377,
-          "sha512": "e9daa0bc02dd5f9b3e6ca061af5ce3909b14f5289022da274b027cf0be12a1f13ea304b0c93880da6be8f6bbe0ba6c671e6af661475e879468ea61603b3e1f22",
-          "sha256": "b7543c6319791a42b8d69a09f54e4d4134aac79b4d1988a3c8c84ed541ddde6a",
-          "sha1": "cf271a155b2b53f906999cfb1a41232e459be47e",
-          "md5": "2e4d933c79eec6e6c5fea792b4ba4706"
+          "size": 20354,
+          "sha512": "27acf530fa08e92e03e68a8d69969a4f60a147779ff65118c0bfe21a73e7197b9e5c0fd0a5ccaaeee0a1fa9564af0d92398c9683d64cdbe3010c5435097da278",
+          "sha256": "8819c8741a8b3bdf1b6b985a898a25400990c7bb55ead0c8ec842b53b0a50e18",
+          "sha1": "613f433d5d58121364676cc77d0a2e4f4cc97e34",
+          "md5": "98f4062a8861f07d2db4e4de0b0f01d7"
         }
       ]
     }
