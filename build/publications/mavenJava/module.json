@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "cnhu7txemjai3otg2lrv2adi7e"
+      "buildId": "npdjdgzs2fde5bpknmyv27wudy"
     }
   },
   "variants": [
@@ -24,15 +24,6 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
-      "dependencies": [
-        {
-          "group": "com.google.code.gson",
-          "module": "gson",
-          "version": {
-            "requires": "2.8.6"
-          }
-        }
-      ],
       "files": [
         {
           "name": "varlib-1.0.jar",

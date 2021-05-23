@@ -1,6 +1,4 @@
-plugins {
-    id 'java-library'
-}
+apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
@@ -22,21 +20,11 @@ task javadocJar(type: Jar) {
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
-}
-
-signing {
-    sign configurations.archives
+    archives sourcesJar, javadocJar
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     compile 'com.google.code.gson:gson:2.8.6'
-}
-
-test {
-    useJUnitPlatform()
 }
 
 publishing {
@@ -51,7 +39,7 @@ publishing {
                 version = project.version
                 artifactId = 'varlib'
                 name = project.name
-                description = ''
+                description = 'java library'
                 url = 'https://github.com/Pierre-development/VarLib'
 
                 scm {
@@ -84,13 +72,13 @@ publishing {
                 username ossrhUsername
                 password ossrhPassword
             }
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
             url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
         }
     }
 }
 
-artifacts {
-    archives sourcesJar, javadocJar
+signing {
+    sign publishing.publications.mavenJava
 }
