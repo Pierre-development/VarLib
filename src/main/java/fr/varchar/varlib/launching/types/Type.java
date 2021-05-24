@@ -37,7 +37,7 @@ public abstract class Type {
                 e.printStackTrace();
             }
             libs.forEach(file -> {
-                if(gameLauncher.getVersionType() == VersionType.V1_13_HIGHER && gameLauncher.getType() == FORGE) {
+                if(gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER && gameLauncher.getType() == FORGE) {
                     if (file.contains("guava") && file.contains("25") || file.contains("20")) {
                         libsRemove.add(file);
                     }
@@ -87,7 +87,7 @@ public abstract class Type {
                 args.add("--tweakClass");
                 args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
 
-            } else if (gameLauncher.getVersionType() == VersionType.V1_13_HIGHER) {
+            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER) {
                 args.add("cpw.mods.modlauncher.Launcher");
             } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
                 args.add("net.minecraft.launchwrapper.Launch");

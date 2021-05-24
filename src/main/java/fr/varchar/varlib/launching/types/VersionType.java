@@ -80,7 +80,7 @@ public abstract class VersionType {
         }
     };
 
-    public static final VersionType V1_13_HIGHER = new VersionType() {
+    public static final VersionType VERSION_1_13_HIGHER = new VersionType() {
         @Override
         public List<String> getArgs(GameLauncher gameLauncher, GameAuthenticator gameAuthenticator) {
             final List<String> args = new ArrayList<>();

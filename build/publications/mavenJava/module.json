@@ -3,7 +3,7 @@
   "component": {
     "group": "io.github.pierre-development",
     "module": "varlib",
-    "version": "1.0",
+    "version": "1.0.1",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "npdjdgzs2fde5bpknmyv27wudy"
+      "buildId": "hhqqoihkrrhntf6brmrq6ra4mi"
     }
   },
   "variants": [
@@ -24,15 +24,24 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        }
+      ],
       "files": [
         {
-          "name": "varlib-1.0.jar",
-          "url": "varlib-1.0.jar",
+          "name": "varlib-1.0.1.jar",
+          "url": "varlib-1.0.1.jar",
           "size": 20354,
-          "sha512": "27acf530fa08e92e03e68a8d69969a4f60a147779ff65118c0bfe21a73e7197b9e5c0fd0a5ccaaeee0a1fa9564af0d92398c9683d64cdbe3010c5435097da278",
-          "sha256": "8819c8741a8b3bdf1b6b985a898a25400990c7bb55ead0c8ec842b53b0a50e18",
-          "sha1": "613f433d5d58121364676cc77d0a2e4f4cc97e34",
-          "md5": "98f4062a8861f07d2db4e4de0b0f01d7"
+          "sha512": "198f35c0e89be9e3960b6b9b093335b1aa12fa35c120cc4f6a0f08e317eed2642c8adbe6ecd9700c4a483f8715e6ac182e8cb22ca891a53522a0e22e0b1a9817",
+          "sha256": "d33b4f6d23fe41de0159f8464293bbcc9b05a58d0147f7571d966161a7e4538e",
+          "sha1": "e956e2c0dc38c9c5e2b15f861561a566356c37ee",
+          "md5": "dd9af148270a48bf91d8281863fa5ece"
         }
       ]
     },
@@ -56,13 +65,13 @@
       ],
       "files": [
         {
-          "name": "varlib-1.0.jar",
-          "url": "varlib-1.0.jar",
+          "name": "varlib-1.0.1.jar",
+          "url": "varlib-1.0.1.jar",
           "size": 20354,
-          "sha512": "27acf530fa08e92e03e68a8d69969a4f60a147779ff65118c0bfe21a73e7197b9e5c0fd0a5ccaaeee0a1fa9564af0d92398c9683d64cdbe3010c5435097da278",
-          "sha256": "8819c8741a8b3bdf1b6b985a898a25400990c7bb55ead0c8ec842b53b0a50e18",
-          "sha1": "613f433d5d58121364676cc77d0a2e4f4cc97e34",
-          "md5": "98f4062a8861f07d2db4e4de0b0f01d7"
+          "sha512": "198f35c0e89be9e3960b6b9b093335b1aa12fa35c120cc4f6a0f08e317eed2642c8adbe6ecd9700c4a483f8715e6ac182e8cb22ca891a53522a0e22e0b1a9817",
+          "sha256": "d33b4f6d23fe41de0159f8464293bbcc9b05a58d0147f7571d966161a7e4538e",
+          "sha1": "e956e2c0dc38c9c5e2b15f861561a566356c37ee",
+          "md5": "dd9af148270a48bf91d8281863fa5ece"
         }
       ]
     }

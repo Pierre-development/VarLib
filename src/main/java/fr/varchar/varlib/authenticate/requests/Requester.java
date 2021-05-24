@@ -1,6 +1,7 @@
 package fr.varchar.varlib.authenticate.requests;
 
 import fr.varchar.varlib.authenticate.Utils;
+import fr.varchar.varlib.exception.AuthenticationException;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -66,34 +67,41 @@ public class Requester {
         return Utils.gson.toJson(map);
     }
 
-    public static Object sendRequest(String endPoint, String jsonPlayload, Class model) throws IOException {
+    public static Object sendRequest(String endPoint, String jsonPlayload, Class model) throws AuthenticationException {
 
-        String url = "https://authserver.mojang.com/" + endPoint;
-        HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
+        final String url = "https://authserver.mojang.com/" + endPoint;
 
-        connection.setDoOutput(true);
-        connection.setDoInput(true);
-        connection.setInstanceFollowRedirects(false);
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Accept-Charset", "UTF-8");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", String.valueOf(jsonPlayload.getBytes(StandardCharsets.UTF_8).length));
+        try {
+            final HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
+
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            connection.setInstanceFollowRedirects(false);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Accept-Charset", "UTF-8");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Content-Length", String.valueOf(jsonPlayload.getBytes(StandardCharsets.UTF_8).length));
 
 
-        final OutputStream outputStream = connection.getOutputStream();
-        outputStream.write(jsonPlayload.getBytes(StandardCharsets.UTF_8));
-        outputStream.flush();
-        outputStream.close();
+            final OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(jsonPlayload.getBytes(StandardCharsets.UTF_8));
+            outputStream.flush();
+            outputStream.close();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(String.valueOf(connection.getResponseCode()).startsWith("2") ? connection.getInputStream() : connection.getErrorStream()));
+            if(connection.getResponseCode() == 403) {
+                throw new AuthenticationException("Invalid credentials");
+            }
 
-        if(model == null) {
-            return null;
-        } else {
-            return Utils.gson.fromJson(br.readLine(), model);
+            BufferedReader br = new BufferedReader(new InputStreamReader(String.valueOf(connection.getResponseCode()).startsWith("2") ? connection.getInputStream() : connection.getErrorStream()));
+            if (model == null) {
+                return null;
+            } else {
+                return Utils.gson.fromJson(br.readLine(), model);
+            }
+        } catch (IOException e) {
+            throw new AuthenticationException("can't send request", e);
         }
     }
-
 
 
 }
