@@ -1,11 +1,13 @@
 package fr.varchar.varlib;
 
 import fr.varchar.varlib.authenticate.GameAuthenticator;
+import fr.varchar.varlib.exceptions.LaunchingException;
 import fr.varchar.varlib.launching.types.Type;
 import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.util.Util;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,23 +52,32 @@ public class GameLauncher {
         this.fmlmcpVersion = fmlmcpVersion;
     }
 
-    public void launch(GameAuthenticator gameAuthenticator) throws IOException {
-        ProcessBuilder processBuilder = new ProcessBuilder(args);
+    public void launch(GameAuthenticator gameAuthenticator) throws LaunchingException {
+        ProcessBuilder processBuilder = new ProcessBuilder(this.args);
         processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
-        Util.checkDirs(this);
+        try {
+            Util.checkDirs(this);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         args.addAll(this.type.getArgs(this));
 
         args.addAll(this.versionType.getArgs(this, gameAuthenticator));
 
         final StringBuilder sb = new StringBuilder();
-        for (String string : args) {
+        for (String string : this.args) {
             sb.append(string + " ");
         }
 
         System.out.println(sb);
-        processBuilder.start();
+        try {
+            processBuilder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new LaunchingException("can't start Minecraft client", e);
+        }
 
     }
 
@@ -113,4 +124,6 @@ public class GameLauncher {
     public String getFmlmcpVersion() {
         return fmlmcpVersion;
     }
+
+
 }

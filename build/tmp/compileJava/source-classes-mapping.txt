@@ -4,29 +4,31 @@ fr/varchar/varlib/authenticate/GameAuthenticator.java
  fr.varchar.varlib.authenticate.GameAuthenticator
 fr/varchar/varlib/authenticate/Profile.java
  fr.varchar.varlib.authenticate.Profile
-fr/varchar/varlib/exception/AuthenticationException.java
- fr.varchar.varlib.exception.AuthenticationException
+fr/varchar/varlib/authenticate/responses/RefreshResponse.java
+ fr.varchar.varlib.authenticate.responses.RefreshResponse
 fr/varchar/varlib/authenticate/Utils.java
  fr.varchar.varlib.authenticate.Utils
 fr/varchar/varlib/FolderType.java
  fr.varchar.varlib.FolderType
-fr/varchar/varlib/authenticate/responses/RefreshResponse.java
- fr.varchar.varlib.authenticate.responses.RefreshResponse
-fr/varchar/varlib/launching/types/VersionType.java
- fr.varchar.varlib.launching.types.VersionType
- fr.varchar.varlib.launching.types.VersionType$1
- fr.varchar.varlib.launching.types.VersionType$2
- fr.varchar.varlib.launching.types.VersionType$3
+fr/varchar/varlib/exceptions/AuthenticationException.java
+ fr.varchar.varlib.exceptions.AuthenticationException
+fr/varchar/varlib/exceptions/LaunchingException.java
+ fr.varchar.varlib.exceptions.LaunchingException
+fr/varchar/varlib/authenticate/requests/Requester.java
+ fr.varchar.varlib.authenticate.requests.Requester
+fr/varchar/varlib/authenticate/Authenticator.java
+ fr.varchar.varlib.authenticate.Authenticator
 fr/varchar/varlib/util/Util.java
  fr.varchar.varlib.util.Util
+fr/varchar/varlib/GameLauncher.java
+ fr.varchar.varlib.GameLauncher
 fr/varchar/varlib/launching/types/Type.java
  fr.varchar.varlib.launching.types.Type
  fr.varchar.varlib.launching.types.Type$1
  fr.varchar.varlib.launching.types.Type$2
  fr.varchar.varlib.launching.types.Type$3
-fr/varchar/varlib/GameLauncher.java
- fr.varchar.varlib.GameLauncher
-fr/varchar/varlib/authenticate/Authenticator.java
- fr.varchar.varlib.authenticate.Authenticator
-fr/varchar/varlib/authenticate/requests/Requester.java
- fr.varchar.varlib.authenticate.requests.Requester
+fr/varchar/varlib/launching/types/VersionType.java
+ fr.varchar.varlib.launching.types.VersionType
+ fr.varchar.varlib.launching.types.VersionType$1
+ fr.varchar.varlib.launching.types.VersionType$2
+ fr.varchar.varlib.launching.types.VersionType$3

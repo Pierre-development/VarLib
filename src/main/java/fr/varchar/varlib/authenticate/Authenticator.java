@@ -3,9 +3,7 @@ package fr.varchar.varlib.authenticate;
 import fr.varchar.varlib.authenticate.requests.Requester;
 import fr.varchar.varlib.authenticate.responses.AuthenticateResponse;
 import fr.varchar.varlib.authenticate.responses.RefreshResponse;
-import fr.varchar.varlib.exception.AuthenticationException;
-
-import java.io.IOException;
+import fr.varchar.varlib.exceptions.AuthenticationException;
 
 public class Authenticator {
 

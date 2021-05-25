@@ -3,7 +3,7 @@
   "component": {
     "group": "io.github.pierre-development",
     "module": "varlib",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "hhqqoihkrrhntf6brmrq6ra4mi"
+      "buildId": "m4g67lesyzc67k6wh33isjowji"
     }
   },
   "variants": [
@@ -35,13 +35,13 @@
       ],
       "files": [
         {
-          "name": "varlib-1.0.1.jar",
-          "url": "varlib-1.0.1.jar",
-          "size": 20354,
-          "sha512": "198f35c0e89be9e3960b6b9b093335b1aa12fa35c120cc4f6a0f08e317eed2642c8adbe6ecd9700c4a483f8715e6ac182e8cb22ca891a53522a0e22e0b1a9817",
-          "sha256": "d33b4f6d23fe41de0159f8464293bbcc9b05a58d0147f7571d966161a7e4538e",
-          "sha1": "e956e2c0dc38c9c5e2b15f861561a566356c37ee",
-          "md5": "dd9af148270a48bf91d8281863fa5ece"
+          "name": "varlib-1.0.2.jar",
+          "url": "varlib-1.0.2.jar",
+          "size": 21158,
+          "sha512": "561c04ecaa534b4cbc7279046771fbe6854c163c57ff13572a1fa5ef5d9cdf4cd80e78c9f76cfa4c628dcc29f77ee13005314ecf978f1fb93d81e2187b5abf5e",
+          "sha256": "de802b6b93d2ee8368e1c7ed941a30ae0e99cda7fd243188bf26e45c8ef18b91",
+          "sha1": "c0f5172b54ea4092f6f7ee2244fff8cc47d36ac7",
+          "md5": "4dda68b85bcf2899e6ea2db6345dc809"
         }
       ]
     },
@@ -65,13 +65,13 @@
       ],
       "files": [
         {
-          "name": "varlib-1.0.1.jar",
-          "url": "varlib-1.0.1.jar",
-          "size": 20354,
-          "sha512": "198f35c0e89be9e3960b6b9b093335b1aa12fa35c120cc4f6a0f08e317eed2642c8adbe6ecd9700c4a483f8715e6ac182e8cb22ca891a53522a0e22e0b1a9817",
-          "sha256": "d33b4f6d23fe41de0159f8464293bbcc9b05a58d0147f7571d966161a7e4538e",
-          "sha1": "e956e2c0dc38c9c5e2b15f861561a566356c37ee",
-          "md5": "dd9af148270a48bf91d8281863fa5ece"
+          "name": "varlib-1.0.2.jar",
+          "url": "varlib-1.0.2.jar",
+          "size": 21158,
+          "sha512": "561c04ecaa534b4cbc7279046771fbe6854c163c57ff13572a1fa5ef5d9cdf4cd80e78c9f76cfa4c628dcc29f77ee13005314ecf978f1fb93d81e2187b5abf5e",
+          "sha256": "de802b6b93d2ee8368e1c7ed941a30ae0e99cda7fd243188bf26e45c8ef18b91",
+          "sha1": "c0f5172b54ea4092f6f7ee2244fff8cc47d36ac7",
+          "md5": "4dda68b85bcf2899e6ea2db6345dc809"
         }
       ]
     }

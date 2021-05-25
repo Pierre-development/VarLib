@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.pierre-development</groupId>
   <artifactId>varlib</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>VarLib</name>
   <description>java library</description>
   <url>https://github.com/Pierre-development/VarLib</url>

@@ -1,4 +1,4 @@
-package fr.varchar.varlib.exception;
+package fr.varchar.varlib.exceptions;
 
 public class AuthenticationException extends Exception {
 

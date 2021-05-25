@@ -1,7 +1,7 @@
 package fr.varchar.varlib.authenticate.requests;
 
 import fr.varchar.varlib.authenticate.Utils;
-import fr.varchar.varlib.exception.AuthenticationException;
+import fr.varchar.varlib.exceptions.AuthenticationException;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
