@@ -10,12 +10,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameLauncher {
 
     private final File dir;
+    private final List<String> allArgs = new ArrayList<>();
     private final List<String> args = new ArrayList<>();
+    private final List<String> vmArgs = new ArrayList<>();
+    private final List<String> classpath = new ArrayList<>();
     private final String version;
     private final File assetsDir;
     private final File nativesDir;
@@ -28,7 +32,7 @@ public class GameLauncher {
     private String fmlmcpVersion;
 
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = new File(System.getenv("appdata") + File.separator + "." + dir);
         } else {
@@ -43,17 +47,23 @@ public class GameLauncher {
         this.versionType = versionType;
         this.type = type;
         this.version = version;
+
+        this.vmArgs.addAll(this.type.getArgs(this));
+        this.classpath.addAll(this.type.getClasspath(this));
+        this.args.add(this.getType().getMainClass(this));
+        this.args.addAll(this.versionType.getArgs(this, gameAuthenticator));
+
     }
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
-        this(dir, version, versionType, type, folderType);
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType, gameAuthenticator);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
     }
 
-    public void launch(GameAuthenticator gameAuthenticator) throws LaunchingException {
-        ProcessBuilder processBuilder = new ProcessBuilder(this.args);
+    public void launch() throws LaunchingException {
+        final ProcessBuilder processBuilder = new ProcessBuilder(this.allArgs);
         processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
@@ -62,12 +72,13 @@ public class GameLauncher {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        args.addAll(this.type.getArgs(this));
+        this.allArgs.addAll(this.vmArgs);
+        this.allArgs.addAll(this.classpath);
+        this.allArgs.addAll(this.args);
 
-        args.addAll(this.versionType.getArgs(this, gameAuthenticator));
 
         final StringBuilder sb = new StringBuilder();
-        for (String string : this.args) {
+        for (String string : this.allArgs) {
             sb.append(string + " ");
         }
 
@@ -81,8 +92,26 @@ public class GameLauncher {
 
     }
 
+
+
     public File getDir() {
         return this.dir;
+    }
+
+    public List<String> getAllArgs() {
+        return allArgs;
+    }
+
+    public List<String> getArgs() {
+        return args;
+    }
+
+    public List<String> getVmArgs() {
+        return vmArgs;
+    }
+
+    public List<String> getClasspath() {
+        return classpath;
     }
 
     public File getNativesDir() {

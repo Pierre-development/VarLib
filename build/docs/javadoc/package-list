@@ -2,6 +2,6 @@ fr.varchar.varlib
 fr.varchar.varlib.authenticate
 fr.varchar.varlib.authenticate.requests
 fr.varchar.varlib.authenticate.responses
-fr.varchar.varlib.exception
+fr.varchar.varlib.exceptions
 fr.varchar.varlib.launching.types
 fr.varchar.varlib.util

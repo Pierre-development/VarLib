@@ -3,7 +3,7 @@
   "component": {
     "group": "io.github.pierre-development",
     "module": "varlib",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.8",
-      "buildId": "m4g67lesyzc67k6wh33isjowji"
+      "buildId": "p73bxe2erjbv3kpq2emzdbmkuu"
     }
   },
   "variants": [
@@ -31,17 +31,24 @@
           "version": {
             "requires": "2.8.6"
           }
+        },
+        {
+          "group": "fr.flowarg",
+          "module": "flowupdater",
+          "version": {
+            "requires": "1.4.0"
+          }
         }
       ],
       "files": [
         {
-          "name": "varlib-1.0.2.jar",
-          "url": "varlib-1.0.2.jar",
-          "size": 21158,
-          "sha512": "561c04ecaa534b4cbc7279046771fbe6854c163c57ff13572a1fa5ef5d9cdf4cd80e78c9f76cfa4c628dcc29f77ee13005314ecf978f1fb93d81e2187b5abf5e",
-          "sha256": "de802b6b93d2ee8368e1c7ed941a30ae0e99cda7fd243188bf26e45c8ef18b91",
-          "sha1": "c0f5172b54ea4092f6f7ee2244fff8cc47d36ac7",
-          "md5": "4dda68b85bcf2899e6ea2db6345dc809"
+          "name": "varlib-1.0.3.jar",
+          "url": "varlib-1.0.3.jar",
+          "size": 21867,
+          "sha512": "62758b368cc7e3b371f75defc3ad24234706d9b4dcb6ed99f15808f7a71ca39ee7815cfaab3f13a17cd93d232ed7a1208c950c5b18e1d88e40f75e9b4ced841f",
+          "sha256": "b0ffbf802ebc5a8c062ac54df972d67853a9cd85b907c47c2e82841d8a852b95",
+          "sha1": "173973a2cef1a2306cdf67548f505bb10d267cc4",
+          "md5": "68f8067ba69ceb1f3b16262a8bfb0689"
         }
       ]
     },
@@ -61,17 +68,24 @@
           "version": {
             "requires": "2.8.6"
           }
+        },
+        {
+          "group": "fr.flowarg",
+          "module": "flowupdater",
+          "version": {
+            "requires": "1.4.0"
+          }
         }
       ],
       "files": [
         {
-          "name": "varlib-1.0.2.jar",
-          "url": "varlib-1.0.2.jar",
-          "size": 21158,
-          "sha512": "561c04ecaa534b4cbc7279046771fbe6854c163c57ff13572a1fa5ef5d9cdf4cd80e78c9f76cfa4c628dcc29f77ee13005314ecf978f1fb93d81e2187b5abf5e",
-          "sha256": "de802b6b93d2ee8368e1c7ed941a30ae0e99cda7fd243188bf26e45c8ef18b91",
-          "sha1": "c0f5172b54ea4092f6f7ee2244fff8cc47d36ac7",
-          "md5": "4dda68b85bcf2899e6ea2db6345dc809"
+          "name": "varlib-1.0.3.jar",
+          "url": "varlib-1.0.3.jar",
+          "size": 21867,
+          "sha512": "62758b368cc7e3b371f75defc3ad24234706d9b4dcb6ed99f15808f7a71ca39ee7815cfaab3f13a17cd93d232ed7a1208c950c5b18e1d88e40f75e9b4ced841f",
+          "sha256": "b0ffbf802ebc5a8c062ac54df972d67853a9cd85b907c47c2e82841d8a852b95",
+          "sha1": "173973a2cef1a2306cdf67548f505bb10d267cc4",
+          "md5": "68f8067ba69ceb1f3b16262a8bfb0689"
         }
       ]
     }
