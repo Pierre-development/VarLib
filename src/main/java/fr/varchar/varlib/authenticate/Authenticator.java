@@ -7,19 +7,19 @@ import fr.varchar.varlib.exceptions.AuthenticationException;
 
 public class Authenticator {
 
-    public AuthenticateResponse authenticate(String username, String password) throws AuthenticationException {
+    public static AuthenticateResponse authenticate(String username, String password) throws AuthenticationException {
         return (AuthenticateResponse) Requester.sendRequest("authenticate", Requester.authRequest(username, password), AuthenticateResponse.class);
     }
 
-    public RefreshResponse refresh(String accessToken, String clientToken) throws AuthenticationException {
+    public static RefreshResponse refresh(String accessToken, String clientToken) throws AuthenticationException {
         return (RefreshResponse) Requester.sendRequest("refresh", Requester.refreshRequest(accessToken, clientToken), RefreshResponse.class);
     }
 
-    public void validate(String accessToken) throws AuthenticationException {
+    public static void validate(String accessToken) throws AuthenticationException {
         Requester.sendRequest("validate", Requester.validateRequest(accessToken), null);
     }
 
-    public void signOut(String username, String password) throws AuthenticationException {
+    public static void signOut(String username, String password) throws AuthenticationException {
         Requester.sendRequest("signout", Requester.signOutRequest(username, password), null);
     }
 
