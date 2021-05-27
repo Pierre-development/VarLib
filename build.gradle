@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group 'fr.varchar-dev'
-version '1.0.4'
+version '1.0.6'
 
 repositories {
     mavenCentral()
@@ -25,7 +25,6 @@ artifacts {
 
 dependencies {
     compile 'com.google.code.gson:gson:2.8.6'
-    compile 'fr.flowarg:flowupdater:1.4.0'
 }
 
 publishing {

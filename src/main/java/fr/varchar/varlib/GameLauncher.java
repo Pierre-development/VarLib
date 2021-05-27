@@ -32,7 +32,7 @@ public class GameLauncher {
     private String fmlmcpVersion;
 
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = new File(System.getenv("appdata") + File.separator + "." + dir);
         } else {
@@ -51,18 +51,17 @@ public class GameLauncher {
         this.vmArgs.addAll(this.type.getArgs(this));
         this.classpath.addAll(this.type.getClasspath(this));
         this.args.add(this.getType().getMainClass(this));
-        this.args.addAll(this.versionType.getArgs(this, gameAuthenticator));
 
     }
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
-        this(dir, version, versionType, type, folderType, gameAuthenticator);
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
     }
 
-    public void launch() throws LaunchingException {
+    public void launch(GameAuthenticator gameAuthenticator) throws LaunchingException {
         final ProcessBuilder processBuilder = new ProcessBuilder(this.allArgs);
         processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
@@ -72,6 +71,7 @@ public class GameLauncher {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        this.args.addAll(this.versionType.getArgs(this, gameAuthenticator));
         this.allArgs.addAll(this.vmArgs);
         this.allArgs.addAll(this.classpath);
         this.allArgs.addAll(this.args);
@@ -92,14 +92,8 @@ public class GameLauncher {
 
     }
 
-
-
     public File getDir() {
         return this.dir;
-    }
-
-    public List<String> getAllArgs() {
-        return allArgs;
     }
 
     public List<String> getArgs() {
