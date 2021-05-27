@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-group 'io.github.pierre-development'
+group 'fr.varchar-dev'
 version '1.0.4'
 
 repositories {

@@ -32,5 +32,3 @@ fr/varchar/varlib/launching/types/VersionType.java
  fr.varchar.varlib.launching.types.VersionType$1
  fr.varchar.varlib.launching.types.VersionType$2
  fr.varchar.varlib.launching.types.VersionType$3
-fr/varchar/varlib/Main.java
- fr.varchar.varlib.Main

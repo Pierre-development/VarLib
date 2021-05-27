@@ -1,9 +1,9 @@
 -classpath 'C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\build\\classes\\java\\main;C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\build\\resources\\main;C:\\Users\\Pierre\\.gradle\\caches\\modules-2\\files-2.1\\fr.flowarg\\flowupdater\\1.4.0\\5f60cb52f27aa9fb0a8c02b2eb3f35af09303ce7\\flowupdater-1.4.0.jar;C:\\Users\\Pierre\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.gson\\gson\\2.8.6\\9180733b7df8542621dc12e21e87557e8c99b8cb\\gson-2.8.6.jar;C:\\Users\\Pierre\\.gradle\\caches\\modules-2\\files-2.1\\fr.flowarg\\flowmultitools\\1.3.0\\4d9aac1935e4756301e911a37d62db5c42f4edbe\\flowmultitools-1.3.0.jar;C:\\Users\\Pierre\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.commons\\commons-compress\\1.20\\b8df472b31e1f17c232d2ad78ceb1c84e00c641b\\commons-compress-1.20.jar'
 -d 'C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\build\\docs\\javadoc'
--doctitle 'VarLib 1.0.3 API'
+-doctitle 'VarLib 1.0.4 API'
 -notimestamp 
 -quiet 
--windowtitle 'VarLib 1.0.3 API'
+-windowtitle 'VarLib 1.0.4 API'
 'C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\src\\main\\java\\fr\\varchar\\varlib\\authenticate\\Authenticator.java'
 'C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\src\\main\\java\\fr\\varchar\\varlib\\authenticate\\GameAuthenticator.java'
 'C:\\Users\\Pierre\\Desktop\\Dev Java\\VarLib\\src\\main\\java\\fr\\varchar\\varlib\\authenticate\\Profile.java'
