@@ -19,18 +19,7 @@ dependencies {
 
 ### For add the library to your Maven project :
 
-```groovy
-repositories {
-    mavenCentral()
-}
-```
-
-```groovy
-dependencies {
-    implementation 'fr.varchar-dev:varlib:VERSION'
-}
-```
-
+coming soon
 
 
 
