@@ -3,7 +3,21 @@
 [version]: https://img.shields.io/maven-central/v/io.github.pierre-development/varlib.svg?label=Version
 ## ![version]
 
-For add the library to your Gradle project :
+### For add the library to your Gradle project :
+
+```groovy
+repositories {
+    mavenCentral()
+}
+```
+
+```groovy
+dependencies {
+    implementation 'fr.varchar-dev:varlib:VERSION'
+}
+```
+
+### For add the library to your Maven project :
 
 ```groovy
 repositories {
