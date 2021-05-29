@@ -1,3 +1,8 @@
+# Join the discord
+
+[discord-support]: https://discord.gg/CjfZQye3GV
+## [discord-support]
+
 # Installation
 
 [version]: https://img.shields.io/maven-central/v/io.github.pierre-development/varlib.svg?label=Version
@@ -19,13 +24,60 @@ dependencies {
 
 ### For add the library to your Maven project :
 
-coming soon
+```xml
+<dependency>
+    <groupId>fr.varchar-dev</groupId>
+    <artifactId>varlib</artifactId>
+    <version>version</version>
+</dependency>
+```
 
+# Authentication
 
+##For authenticate
 
+```java
+AuthenticateResponse authenticateResponse = Authenticator.authenticate(username, password);
+```
 
+## For refresh 
 
+```java
+RefreshResponse refreshResponse = Authenticator.refresh(accessToken, clientToken);
+```
 
+### You can add this informations to a GameAuthenticator
 
+```java
+GameAuthenticator gameAuthenticator = new GameAuthenticator(authenticateResponse.getSelectedProfile().getName(), authenticateResponse.getAccessToken(), authenticateResponse.getSelectedProfile().getId());
+```
 
-Wola laisse moi le week-end et je clean un peu le code ^^.
+# Launching
+
+## Use a GameLauncher
+
+### Without Forge
+
+```java
+GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.VANILLA, FolderType.FLOW_UPDATER);
+```
+
+### With Forge on 1.13 higher
+
+```java
+GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.FORGE, FolderType.FLOW_UPDATER, "34.1.23", "1.16.3", "20200911.084530");
+```
+
+## Add vm arguments (optional)
+
+```java
+gameLauncher.getVmArgs().addAll(Arrays.asList("YourArg"));
+```
+
+## Launch the game
+
+```java
+gameLauncher.launch(gameAuthenticator);
+```
+
+don't hesitate to star the repo and join the discord <3
