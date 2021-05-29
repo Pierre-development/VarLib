@@ -5,7 +5,7 @@
 
 # Installation
 
-[version]: https://img.shields.io/maven-central/v/io.github.pierre-development/varlib.svg?label=Version
+[version]: https://img.shields.io/maven-central/v/fr.varchar-dev/varlib.svg?label=Version
 ## ![version]
 
 ### For add the library to your Gradle project :
