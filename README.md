@@ -8,7 +8,7 @@
 [version]: https://img.shields.io/maven-central/v/fr.varchar-dev/varlib.svg?label=Version
 ## ![version]
 
-### For add the library to your Gradle project :
+### To add the library to your Gradle project:
 
 ```groovy
 repositories {
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-### For add the library to your Maven project :
+### To add the library to your Maven project:
 
 ```xml
 <dependency>
@@ -62,7 +62,7 @@ GameAuthenticator gameAuthenticator = new GameAuthenticator(authenticateResponse
 GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.VANILLA, FolderType.FLOW_UPDATER);
 ```
 
-### With Forge on 1.13 higher
+### With Forge 1.13 higher
 
 ```java
 GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.FORGE, FolderType.FLOW_UPDATER, "34.1.23", "1.16.3", "20200911.084530");
