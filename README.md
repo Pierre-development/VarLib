@@ -34,7 +34,7 @@ dependencies {
 
 # Authentication
 
-##For authenticate
+## For authenticate
 
 ```java
 AuthenticateResponse authenticateResponse = Authenticator.authenticate(username, password);
@@ -46,7 +46,7 @@ AuthenticateResponse authenticateResponse = Authenticator.authenticate(username,
 RefreshResponse refreshResponse = Authenticator.refresh(accessToken, clientToken);
 ```
 
-### You can add this informations to a GameAuthenticator
+### You can add these informations to a GameAuthenticator
 
 ```java
 GameAuthenticator gameAuthenticator = new GameAuthenticator(authenticateResponse.getSelectedProfile().getName(), authenticateResponse.getAccessToken(), authenticateResponse.getSelectedProfile().getId());
