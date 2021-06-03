@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group 'fr.varchar-dev'
-version '1.0.7'
+version '1.0.8'
 
 repositories {
     mavenCentral()
@@ -72,9 +72,7 @@ publishing {
                 username ossrhUsername
                 password ossrhPassword
             }
-            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-            url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
         }
     }
 }
