@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group 'fr.varchar-dev'
-version '1.0.6'
+version '1.0.7'
 
 repositories {
     mavenCentral()

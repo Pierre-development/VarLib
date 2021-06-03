@@ -9,6 +9,7 @@ public class Util {
     public static void checkDirs(GameLauncher gameLauncher) throws FileNotFoundException {
         if (!gameLauncher.getAssetsDir().exists()) {
             throw new FileNotFoundException("Assets folder doesn't exist");
+
         } else if (!gameLauncher.getLibrariesDir().exists()) {
             throw new FileNotFoundException("Libraries folder doesn't exist");
         } else if (!gameLauncher.getNativesDir().exists()) {

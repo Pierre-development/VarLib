@@ -5,12 +5,14 @@ import fr.varchar.varlib.exceptions.LaunchingException;
 import fr.varchar.varlib.launching.types.Type;
 import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.util.Util;
+import fr.varchar.varlib.util.logger.Color;
+import fr.varchar.varlib.util.logger.Logger;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GameLauncher {
@@ -30,9 +32,10 @@ public class GameLauncher {
     private String fmlForgeVersion;
     private String fmlmcVersion;
     private String fmlmcpVersion;
-
+    private final Logger logger = new Logger(Logger.DEFAULT);
 
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
+        logger.log("Cette librairie a \u00E9t\u00E9 cr\u00E9\u00E9e par VarChar | le discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = new File(System.getenv("appdata") + File.separator + "." + dir);
         } else {
@@ -49,7 +52,6 @@ public class GameLauncher {
         this.version = version;
 
         this.vmArgs.addAll(this.type.getArgs(this));
-        this.classpath.addAll(this.type.getClasspath(this));
         this.args.add(this.getType().getMainClass(this));
 
     }
@@ -73,6 +75,7 @@ public class GameLauncher {
         }
         this.args.addAll(this.versionType.getArgs(this, gameAuthenticator));
         this.allArgs.addAll(this.vmArgs);
+        this.classpath.addAll(this.type.getClasspath(this));
         this.allArgs.addAll(this.classpath);
         this.allArgs.addAll(this.args);
 
