@@ -39,7 +39,7 @@ publishing {
                 version = project.version
                 artifactId = 'varlib'
                 name = project.name
-                description = 'java library'
+                description = 'A Java library for Minecraft authenticating and launching'
                 url = 'https://github.com/Pierre-development/VarLib'
 
                 scm {
@@ -59,7 +59,7 @@ publishing {
                     developer {
                         id = 'varchar'
                         name = 'VarChar'
-                        email = 'sddslebg@gmail.com'
+                        email = 'varchar.developpement@gmail.com'
                     }
                 }
             }
