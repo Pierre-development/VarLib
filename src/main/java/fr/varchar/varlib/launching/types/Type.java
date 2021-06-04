@@ -25,7 +25,6 @@ public abstract class Type {
         }
 
 
-
         @Override
         public String getMainClass(GameLauncher gameLauncher) {
             return null;
@@ -39,6 +38,7 @@ public abstract class Type {
             args.addAll(DEFAULT.getArgs(gameLauncher));
             return args;
         }
+
         @Override
         public String getMainClass(GameLauncher gameLauncher) {
             return "net.minecraft.client.main.Main";
@@ -53,7 +53,7 @@ public abstract class Type {
             if (gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
                 args.add("--tweakClass");
                 args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
-            } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
+            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
                 args.add("--tweakClass");
                 args.add("cpw.mods.fml.common.launcher.FMLTweaker");
             }
@@ -62,14 +62,14 @@ public abstract class Type {
 
         @Override
         public String getMainClass(GameLauncher gameLauncher) {
-            if(gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
+            if (gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
                 return "net.minecraft.launchwrapper.Launch";
             } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER) {
                 return "cpw.mods.modlauncher.Launcher";
-            } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
+            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
                 return "net.minecraft.launchwrapper.Launch";
             }
-                return null;
+            return null;
         }
     };
 
@@ -91,7 +91,7 @@ public abstract class Type {
             e.printStackTrace();
         }
         libs.forEach(file -> {
-            if(gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER && gameLauncher.getType() == FORGE) {
+            if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER && gameLauncher.getType() == FORGE) {
                 if (file.contains("guava") && file.contains("25") || file.contains("20")) {
                     libsRemove.add(file);
                 }
@@ -100,8 +100,8 @@ public abstract class Type {
                     if (file.contains("6") && !gameLauncher.getVersion().contains("1.14"))
                         libsRemove.add(file);
                 }
-            } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_7_10 && gameLauncher.getType() == FORGE) {
-                if(file.contains("guava") && file.contains("15")) {
+            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10 && gameLauncher.getType() == FORGE) {
+                if (file.contains("guava") && file.contains("15")) {
                     libsRemove.add(file);
                 }
             }
@@ -120,6 +120,7 @@ public abstract class Type {
     }
 
     public abstract List<String> getArgs(GameLauncher gameLauncher);
+
     public abstract String getMainClass(GameLauncher gameLauncher);
 
 }

@@ -42,6 +42,10 @@ public class GameLauncher {
             this.dir = new File(System.getProperty("user.home") + File.separator + "." + dir);
         }
 
+        if(!this.dir.exists()) {
+            this.dir.mkdirs();
+        }
+
         this.assetsDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getAssetsDir());
         this.nativesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getNativesDir());
         this.librariesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getLibrariesDir());
