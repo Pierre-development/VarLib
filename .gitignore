@@ -3,4 +3,4 @@
 /run/
 .idea
 out
-src/t
+logs/
