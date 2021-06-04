@@ -28,7 +28,7 @@ dependencies {
 <dependency>
     <groupId>fr.varchar-dev</groupId>
     <artifactId>varlib</artifactId>
-    <version>version</version>
+    <version>VERSION</version>
 </dependency>
 ```
 
@@ -78,6 +78,49 @@ gameLauncher.getVmArgs().addAll(Arrays.asList("YourArg"));
 
 ```java
 gameLauncher.launch(gameAuthenticator);
+```
+
+# Bootstrap 
+
+## Use a bootStrap object
+
+Warning : you have to name your bootstrap file : launcher.jar
+
+```java
+BootStrap bootStrap = new BootStrap("yourGameDir", "bootstrapDirOnGameDir");
+```
+
+## And to launch it
+
+```java
+bootStrap.launch();
+```
+
+# Logger (optional)
+```
+Logger logger = new Logger("yourServerName");
+```
+
+## Log
+
+### Normal log
+
+```java
+logger.log("message");
+```
+
+### Log with color
+
+#### Warning : the import for Color's class is ``fr.varchar.varlib.util.logger.Color;``
+
+```java
+logger.log("message", Color.RED);
+```
+
+## LogError
+
+```java
+logger.logError("yourError");
 ```
 
 don't hesitate to star the repo and join the discord <3
