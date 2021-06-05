@@ -2,6 +2,7 @@ package fr.varchar.varlib.launching.types;
 
 import fr.varchar.varlib.GameLauncher;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -83,7 +84,7 @@ public abstract class Type {
         try (Stream<Path> paths = Files.walk(gameLauncher.getLibrariesDir().toPath())) {
             paths.filter(Files::isRegularFile).forEach(file -> {
                 if (file.toFile().getAbsolutePath().endsWith("jar")) {
-                    libs.add(file.toFile().getAbsolutePath() + ";");
+                    libs.add(file.toFile().getAbsolutePath() + File.pathSeparator);
                 }
             });
 
