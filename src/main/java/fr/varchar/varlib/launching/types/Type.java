@@ -93,18 +93,15 @@ public abstract class Type {
         }
         libs.forEach(file -> {
             if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER && gameLauncher.getType() == FORGE) {
-                if (file.contains("guava") && file.contains("25") || file.contains("20")) {
+                if (file.contains("guava") && (file.contains("25") || file.contains("20"))) {
                     libsRemove.add(file);
                 }
 
-                if (file.contains("asm")) {
-                    if (file.contains("6") && !gameLauncher.getVersion().contains("1.14"))
-                        libsRemove.add(file);
-                }
-            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10 && gameLauncher.getType() == FORGE) {
-                if (file.contains("guava") && file.contains("15")) {
+                if (file.contains("asm") && file.contains("6") && !gameLauncher.getVersion().contains("1.14")) {
                     libsRemove.add(file);
                 }
+            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10 && gameLauncher.getType() == FORGE && file.contains("guava") && file.contains("15")) {
+                libsRemove.add(file);
             }
         });
         libsRemove.forEach(libs::remove);
