@@ -33,14 +33,30 @@ public class GameLauncher {
     private String fmlmcVersion;
     private String fmlmcpVersion;
     private final Logger logger = new Logger(Logger.DEFAULT);
+    
+     /**
+     * Generate the game directory of the current OS by the given
+     * server name, like the default of Minecraft. Code from OpenLauncherLib
+     *
+     * @param serverName The server name that will be the directory
+     *                   name.
+     * @return The generated game directory
+     */
+    public static File createGameDir(String serverName)
+    {
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win"))
+            return new File(System.getProperty("user.home") + "\\AppData\\Roaming\\." + serverName);
+        else if (os.contains("mac"))
+            return new File(System.getProperty("user.home") + "/Library/Application Support/" + serverName);
+        else
+            return new File(System.getProperty("user.home") + "/.local/share/." + serverName);
+    }
 
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
         logger.log("Cette librairie a \u00E9t\u00E9 cr\u00E9\u00E9e par VarChar | le discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
-        if (System.getProperty("os.name").startsWith("Win")) {
-            this.dir = new File(System.getenv("appdata") + File.separator + "." + dir);
-        } else {
-            this.dir = new File(System.getProperty("user.home") + File.separator + "." + dir);
-        }
+        this.dir = createGameDir(dir);
+
 
         if(!this.dir.exists()) {
             this.dir.mkdirs();
