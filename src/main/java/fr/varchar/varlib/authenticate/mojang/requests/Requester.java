@@ -1,6 +1,6 @@
-package fr.varchar.varlib.authenticate.requests;
+package fr.varchar.varlib.authenticate.mojang.requests;
 
-import fr.varchar.varlib.authenticate.Utils;
+import fr.varchar.varlib.authenticate.mojang.Utils;
 import fr.varchar.varlib.exceptions.AuthenticationException;
 
 import javax.net.ssl.HttpsURLConnection;

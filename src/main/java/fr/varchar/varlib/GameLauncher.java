@@ -1,6 +1,6 @@
 package fr.varchar.varlib;
 
-import fr.varchar.varlib.authenticate.GameAuthenticator;
+import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.exceptions.LaunchingException;
 import fr.varchar.varlib.launching.types.Type;
 import fr.varchar.varlib.launching.types.VersionType;

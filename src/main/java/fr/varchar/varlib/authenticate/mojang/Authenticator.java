@@ -1,8 +1,8 @@
-package fr.varchar.varlib.authenticate;
+package fr.varchar.varlib.authenticate.mojang;
 
-import fr.varchar.varlib.authenticate.requests.Requester;
-import fr.varchar.varlib.authenticate.responses.AuthenticateResponse;
-import fr.varchar.varlib.authenticate.responses.RefreshResponse;
+import fr.varchar.varlib.authenticate.mojang.requests.Requester;
+import fr.varchar.varlib.authenticate.mojang.responses.AuthenticateResponse;
+import fr.varchar.varlib.authenticate.mojang.responses.RefreshResponse;
 import fr.varchar.varlib.exceptions.AuthenticationException;
 
 public class Authenticator {

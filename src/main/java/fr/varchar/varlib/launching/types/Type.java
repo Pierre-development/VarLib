@@ -51,13 +51,6 @@ public abstract class Type {
         public List<String> getArgs(GameLauncher gameLauncher) {
             final List<String> args = new ArrayList<>();
             args.addAll(DEFAULT.getArgs(gameLauncher));
-            if (gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
-                args.add("--tweakClass");
-                args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
-            } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
-                args.add("--tweakClass");
-                args.add("cpw.mods.fml.common.launcher.FMLTweaker");
-            }
             return args;
         }
 

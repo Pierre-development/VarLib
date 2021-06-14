@@ -1,6 +1,6 @@
 package fr.varchar.varlib.launching.types;
 
-import fr.varchar.varlib.authenticate.GameAuthenticator;
+import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.GameLauncher;
 
 import java.util.ArrayList;
@@ -76,6 +76,15 @@ public abstract class VersionType {
 
             args.add("--userType");
             args.add("legacy");
+            if(gameLauncher.getType() == Type.FORGE) {
+                if (gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
+                    args.add("--tweakClass");
+                    args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
+                } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
+                    args.add("--tweakClass");
+                    args.add("cpw.mods.fml.common.launcher.FMLTweaker");
+                }
+            }
             return args;
         }
     };

@@ -1,4 +1,4 @@
-package fr.varchar.varlib.authenticate;
+package fr.varchar.varlib.authenticate.mojang;
 
 public class GameAuthenticator {
 

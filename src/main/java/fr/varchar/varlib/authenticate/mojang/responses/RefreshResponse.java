@@ -1,6 +1,6 @@
-package fr.varchar.varlib.authenticate.responses;
+package fr.varchar.varlib.authenticate.mojang.responses;
 
-import fr.varchar.varlib.authenticate.Profile;
+import fr.varchar.varlib.authenticate.mojang.Profile;
 
 public class RefreshResponse {
 
