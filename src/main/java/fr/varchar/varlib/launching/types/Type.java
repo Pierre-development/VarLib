@@ -2,8 +2,10 @@ package fr.varchar.varlib.launching.types;
 
 import fr.varchar.varlib.GameLauncher;
 
+
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -74,7 +76,7 @@ public abstract class Type {
 
         final List<String> libs = new ArrayList<>();
         final List<String> libsRemove = new ArrayList<>();
-        try (Stream<Path> paths = Files.walk(gameLauncher.getLibrariesDir().toPath())) {
+        try (Stream<Path> paths = Files.walk(gameLauncher.getLibrariesDir().toAbsolutePath())) {
             paths.filter(Files::isRegularFile).forEach(file -> {
                 if (file.toFile().getAbsolutePath().endsWith("jar")) {
                     libs.add(file.toFile().getAbsolutePath() + File.pathSeparator);
@@ -99,7 +101,7 @@ public abstract class Type {
         });
         libsRemove.forEach(libs::remove);
         libs.forEach(sb::append);
-        sb.append(gameLauncher.getMinecraftClient().getAbsolutePath());
+        sb.append(gameLauncher.getMinecraftClient().toAbsolutePath());
 
 
         classpath.add(sb.toString());

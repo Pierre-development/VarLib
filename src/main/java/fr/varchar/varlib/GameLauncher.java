@@ -9,24 +9,27 @@ import fr.varchar.varlib.util.logger.Color;
 import fr.varchar.varlib.util.logger.Logger;
 
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameLauncher {
 
-    private final File dir;
+    private final Path dir;
     private final List<String> allArgs = new ArrayList<>();
     private final List<String> args = new ArrayList<>();
     private final List<String> vmArgs = new ArrayList<>();
     private final List<String> classpath = new ArrayList<>();
     private final String version;
-    private final File assetsDir;
-    private final File nativesDir;
-    private final File librariesDir;
-    private final File minecraftClient;
+    private final Path assetsDir;
+    private final Path nativesDir;
+    private final Path librariesDir;
+    private final Path minecraftClient;
     private final VersionType versionType;
     private final Type type;
     private String fmlForgeVersion;
@@ -34,38 +37,25 @@ public class GameLauncher {
     private String fmlmcpVersion;
     private final Logger logger = new Logger(Logger.DEFAULT);
     
-     /**
-     * Generate the game directory of the current OS by the given
-     * server name, like the default of Minecraft. Code from OpenLauncherLib
-     *
-     * @param serverName The server name that will be the directory
-     *                   name.
-     * @return The generated game directory
-     */
-    public static File createGameDir(String serverName)
-    {
-        String os = System.getProperty("os.name").toLowerCase();
-        if (os.contains("win"))
-            return new File(System.getProperty("user.home") + "\\AppData\\Roaming\\." + serverName);
-        else if (os.contains("mac"))
-            return new File(System.getProperty("user.home") + "/Library/Application Support/" + serverName);
-        else
-            return new File(System.getProperty("user.home") + "/.local/share/." + serverName);
-    }
+
 
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
         logger.log("Cette librairie a \u00E9t\u00E9 cr\u00E9\u00E9e par VarChar | le discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
-        this.dir = createGameDir(dir);
+        this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + dir);
 
 
-        if(!this.dir.exists()) {
-            this.dir.mkdirs();
+        if(!Files.exists(this.dir)) {
+            try {
+                Files.createDirectories(this.dir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        this.assetsDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getAssetsDir());
-        this.nativesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getNativesDir());
-        this.librariesDir = new File(this.dir.getAbsolutePath() + File.separator + folderType.getLibrariesDir());
-        this.minecraftClient = new File(this.dir.getAbsolutePath() + File.separator + folderType.getMinecraftClient());
+        this.assetsDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getAssetsDir());
+        this.nativesDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getNativesDir());
+        this.librariesDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getLibrariesDir());
+        this.minecraftClient = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getMinecraftClient());
 
         this.versionType = versionType;
         this.type = type;
@@ -115,8 +105,8 @@ public class GameLauncher {
 
     }
 
-    public File getDir() {
-        return this.dir;
+    public Path getDir() {
+        return dir;
     }
 
     public List<String> getArgs() {
@@ -131,23 +121,23 @@ public class GameLauncher {
         return classpath;
     }
 
-    public File getNativesDir() {
-        return this.nativesDir;
+    public Path getNativesDir() {
+        return nativesDir;
     }
 
     public String getVersion() {
         return this.version;
     }
 
-    public File getAssetsDir() {
+    public Path getAssetsDir() {
         return assetsDir;
     }
 
-    public File getLibrariesDir() {
+    public Path getLibrariesDir() {
         return librariesDir;
     }
 
-    public File getMinecraftClient() {
+    public Path getMinecraftClient() {
         return minecraftClient;
     }
 

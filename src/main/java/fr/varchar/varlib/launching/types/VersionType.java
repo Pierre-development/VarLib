@@ -26,10 +26,10 @@ public abstract class VersionType {
             args.add(gameLauncher.getVersion());
 
             args.add("--gameDir");
-            args.add(gameLauncher.getDir().getAbsolutePath());
+            args.add(gameLauncher.getDir().toAbsolutePath().toString());
 
             args.add("--assetsDir");
-            args.add(gameLauncher.getAssetsDir().getAbsolutePath());
+            args.add(gameLauncher.getAssetsDir().toAbsolutePath().toString());
 
             args.add("--assetIndex");
             args.add(gameLauncher.getVersion());
@@ -60,10 +60,10 @@ public abstract class VersionType {
             args.add(gameLauncher.getVersion());
 
             args.add("--gameDir");
-            args.add(gameLauncher.getDir().getAbsolutePath());
+            args.add(gameLauncher.getDir().toAbsolutePath().toString());
 
             args.add("--assetsDir");
-            args.add(gameLauncher.getAssetsDir().getAbsolutePath());
+            args.add(gameLauncher.getAssetsDir().toAbsolutePath().toString());
 
             args.add("--assetIndex");
             args.add(gameLauncher.getVersion());
@@ -102,10 +102,10 @@ public abstract class VersionType {
             args.add(gameLauncher.getVersion());
 
             args.add("--gameDir");
-            args.add(gameLauncher.getDir().getAbsolutePath());
+            args.add(gameLauncher.getDir().toAbsolutePath().toString());
 
             args.add("--assetsDir");
-            args.add(gameLauncher.getAssetsDir().getAbsolutePath());
+            args.add(gameLauncher.getAssetsDir().toAbsolutePath().toString());
 
             args.add("--assetIndex");
             args.add(gameLauncher.getVersion());
