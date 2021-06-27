@@ -2,7 +2,6 @@ package fr.varchar.varlib.util;
 
 import fr.varchar.varlib.GameLauncher;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 

@@ -8,7 +8,6 @@ import fr.varchar.varlib.util.Util;
 import fr.varchar.varlib.util.logger.Color;
 import fr.varchar.varlib.util.logger.Logger;
 
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -36,12 +35,18 @@ public class GameLauncher {
     private String fmlmcVersion;
     private String fmlmcpVersion;
     private final Logger logger = new Logger(Logger.DEFAULT);
-    
+
 
 
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
-        logger.log("Cette librairie a \u00E9t\u00E9 cr\u00E9\u00E9e par VarChar | le discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
-        this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + dir);
+        logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
+
+        if (System.getProperty("os.name").startsWith("Win")) {
+            this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
+        } else {
+            this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "." + dir);
+        }
+
 
 
         if(!Files.exists(this.dir)) {

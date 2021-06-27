@@ -1,6 +1,6 @@
 package fr.varchar.varlib.launching.bootstrap;
 
-import java.io.File;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class Args {
 
     public static List<String> defaultArgs(BootStrap bootStrap) {
         final List<String> args = new ArrayList<>();
-        args.add(bootStrap.getDir().getAbsolutePath() + File.separator + "launcher.jar");
+        args.add(bootStrap.getDir().toAbsolutePath() + FileSystems.getDefault().getSeparator() + "launcher.jar");
         return args;
     }
 
