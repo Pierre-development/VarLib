@@ -31,16 +31,14 @@ public class GameLauncher {
     private final Path minecraftClient;
     private final VersionType versionType;
     private final Type type;
+    private final GameAuthenticator gameAuthenticator;
     private String fmlForgeVersion;
     private String fmlmcVersion;
     private String fmlmcpVersion;
     private final Logger logger = new Logger(Logger.DEFAULT);
 
 
-
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType) {
-        logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
-
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
         } else {
@@ -48,8 +46,7 @@ public class GameLauncher {
         }
 
 
-
-        if(!Files.exists(this.dir)) {
+        if (!Files.exists(this.dir)) {
             try {
                 Files.createDirectories(this.dir);
             } catch (IOException e) {
@@ -65,20 +62,21 @@ public class GameLauncher {
         this.versionType = versionType;
         this.type = type;
         this.version = version;
+        this.gameAuthenticator = gameAuthenticator;
 
         this.vmArgs.addAll(this.type.getArgs(this));
         this.args.add(this.getType().getMainClass(this));
-
     }
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
-        this(dir, version, versionType, type, folderType);
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType, gameAuthenticator);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
     }
 
-    public void launch(GameAuthenticator gameAuthenticator) throws LaunchingException {
+    public void launch() throws LaunchingException {
+        logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
         final ProcessBuilder processBuilder = new ProcessBuilder(this.allArgs);
         processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
@@ -102,12 +100,12 @@ public class GameLauncher {
 
         System.out.println(sb);
         try {
-            processBuilder.start();
-        } catch (IOException e) {
+            Process process = processBuilder.start();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
             throw new LaunchingException("can't start Minecraft client", e);
         }
-
     }
 
     public Path getDir() {
