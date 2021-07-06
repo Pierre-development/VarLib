@@ -31,11 +31,11 @@ public class Util {
         public static void init(String json) {
             FMLInfos.json = json;
             JsonElement jsonElements = null;
-            /*try {
-                jsonElements = JsonParser.parse(new FileReader(FMLInfos.json));
+            try {
+                jsonElements = JsonParser.parseReader(new FileReader(FMLInfos.json));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            }*/
+            }
             final JsonObject jsonObject = jsonElements.getAsJsonObject();
             final JsonElement jsonElement = jsonObject.get("arguments");
             strings = jsonElement.toString().split("\",\"");
