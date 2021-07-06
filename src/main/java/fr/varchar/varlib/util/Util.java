@@ -45,9 +45,18 @@ public class Util {
             return strings[3];
         }
 
+        /**
+         *
+         * @return
+         */
+
         public static String getFmlMcVersion() {
             return strings[5];
         }
+
+        /**
+         * @return fml mcp version of Forge installer's json file
+         */
 
         public static String getFmlMcpVersion() {
             return strings[9].replaceAll("\"]}", "");
