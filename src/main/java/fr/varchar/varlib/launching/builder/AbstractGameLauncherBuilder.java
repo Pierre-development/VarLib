@@ -3,11 +3,16 @@ package fr.varchar.varlib.launching.builder;
 import fr.varchar.varlib.FolderType;
 import fr.varchar.varlib.GameLauncher;
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
-import fr.varchar.varlib.launching.types.VersionType;
+import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.arguments.ArgumentsManager;
+import fr.varchar.varlib.launching.arguments.CallBackArgument;
+import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class AbstractGameLauncherBuilder {
     protected final String dir;
@@ -16,6 +21,9 @@ public abstract class AbstractGameLauncherBuilder {
     protected FolderType folderType;
     protected GameAuthenticator gameAuthenticator;
     protected Path absoluteDir;
+    protected final VMArgumentsManager vmArgumentsManager = new VMArgumentsManager();
+    protected final ArgumentsManager argumentsManager = new ArgumentsManager();
+    protected CallBackArgument callBackArgument = () -> null;
 
     public AbstractGameLauncherBuilder(String dir) {
         this.dir = dir;
@@ -44,6 +52,20 @@ public abstract class AbstractGameLauncherBuilder {
     public AbstractGameLauncherBuilder setGameAuthenticator(GameAuthenticator gameAuthenticator) {
         this.gameAuthenticator = gameAuthenticator;
         return this;
+    }
+
+    public AbstractGameLauncherBuilder addVMArgument(String... args) {
+        this.callBackArgument = new CallBackArgument() {
+            @Override
+            public List<String> vmArgs() {
+                return Arrays.asList(args);
+            }
+        };
+        return this;
+    }
+
+    public Path getAbsoluteDir() {
+        return absoluteDir;
     }
 
     public abstract GameLauncher build();

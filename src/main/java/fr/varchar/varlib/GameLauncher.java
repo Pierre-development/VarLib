@@ -2,8 +2,11 @@ package fr.varchar.varlib;
 
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.exceptions.LaunchingException;
-import fr.varchar.varlib.launching.types.Type;
-import fr.varchar.varlib.launching.types.VersionType;
+import fr.varchar.varlib.launching.Type;
+import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.arguments.ArgumentsManager;
+import fr.varchar.varlib.launching.arguments.CallBackArgument;
+import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
 import fr.varchar.varlib.util.Util;
 import fr.varchar.varlib.util.logger.Color;
 import fr.varchar.varlib.util.logger.Logger;
@@ -21,24 +24,25 @@ public class GameLauncher {
 
     private final Path dir;
     private final List<String> allArgs = new ArrayList<>();
-    private final List<String> args = new ArrayList<>();
     private final List<String> vmArgs = new ArrayList<>();
-    private final List<String> classpath = new ArrayList<>();
     private final String version;
     private final Path assetsDir;
     private final Path nativesDir;
     private final Path librariesDir;
     private final Path minecraftClient;
-    private final VersionType versionType;
-    private final Type type;
+    private final fr.varchar.varlib.launching.VersionType versionType;
+    private final fr.varchar.varlib.launching.Type type;
     private final GameAuthenticator gameAuthenticator;
     private String fmlForgeVersion;
     private String fmlmcVersion;
     private String fmlmcpVersion;
     private final Logger logger = new Logger(Logger.DEFAULT);
+    private final VMArgumentsManager vmArgumentsManager;
+    private final ArgumentsManager argumentsManager;
+    private ProcessBuilder processBuilder;
+    private final CallBackArgument callBackArgument;
 
-
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
         } else {
@@ -63,13 +67,13 @@ public class GameLauncher {
         this.type = type;
         this.version = version;
         this.gameAuthenticator = gameAuthenticator;
-
-        this.vmArgs.addAll(this.type.getArgs(this));
-        this.args.add(this.getType().getMainClass(this));
+        this.vmArgumentsManager = vmArgs;
+        this.argumentsManager = args;
+        this.callBackArgument = callBackArgument;
     }
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
-        this(dir, version, versionType, type, folderType, gameAuthenticator);
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType, gameAuthenticator, vmArgs, args, callBackArgument);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
@@ -77,21 +81,18 @@ public class GameLauncher {
 
     public void launch() throws LaunchingException {
         logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
-        final ProcessBuilder processBuilder = new ProcessBuilder(this.allArgs);
-        processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
-        processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-        processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
+        this.processBuilder = new ProcessBuilder(this.allArgs);
+        this.processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
+        this.processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        this.processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
         try {
             Util.checkDirs(this);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        this.args.addAll(this.versionType.getArgs(this, gameAuthenticator));
-        this.allArgs.addAll(this.vmArgs);
-        this.classpath.addAll(this.type.getClasspath(this));
-        this.allArgs.addAll(this.classpath);
-        this.allArgs.addAll(this.args);
-
+        this.allArgs.addAll(this.vmArgumentsManager.getVMArgs(this, this.callBackArgument));
+        this.allArgs.addAll(this.vmArgumentsManager.getClassPath(this));
+        this.allArgs.addAll(this.argumentsManager.getArgs(this));
 
         final StringBuilder sb = new StringBuilder();
         for (String string : this.allArgs) {
@@ -100,9 +101,8 @@ public class GameLauncher {
 
         System.out.println(sb);
         try {
-            Process process = processBuilder.start();
-            process.waitFor();
-        } catch (IOException | InterruptedException e) {
+            this.processBuilder.start();
+        } catch (IOException e) {
             e.printStackTrace();
             throw new LaunchingException("can't start Minecraft client", e);
         }
@@ -110,18 +110,6 @@ public class GameLauncher {
 
     public Path getDir() {
         return dir;
-    }
-
-    public List<String> getArgs() {
-        return args;
-    }
-
-    public List<String> getVmArgs() {
-        return vmArgs;
-    }
-
-    public List<String> getClasspath() {
-        return classpath;
     }
 
     public Path getNativesDir() {
@@ -144,11 +132,11 @@ public class GameLauncher {
         return minecraftClient;
     }
 
-    public Type getType() {
+    public fr.varchar.varlib.launching.Type getType() {
         return type;
     }
 
-    public VersionType getVersionType() {
+    public fr.varchar.varlib.launching.VersionType getVersionType() {
         return versionType;
     }
 
@@ -164,5 +152,19 @@ public class GameLauncher {
         return fmlmcpVersion;
     }
 
+    public GameAuthenticator getGameAuthenticator() {
+        return gameAuthenticator;
+    }
 
+    public VMArgumentsManager getVmArgumentsManager() {
+        return vmArgumentsManager;
+    }
+
+    public List<String> getVmArgs() {
+        return vmArgs;
+    }
+
+    public ProcessBuilder getProcessBuilder() {
+        return processBuilder;
+    }
 }

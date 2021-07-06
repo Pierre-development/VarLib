@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public abstract class Type {
-
+/*
     private static final Type DEFAULT = new Type() {
 
         @Override
@@ -115,5 +115,5 @@ public abstract class Type {
     public abstract List<String> getArgs(GameLauncher gameLauncher);
 
     public abstract String getMainClass(GameLauncher gameLauncher);
-
+*/
 }

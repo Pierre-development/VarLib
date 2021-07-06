@@ -1,7 +1,7 @@
 package fr.varchar.varlib.launching.builder;
 
 import fr.varchar.varlib.GameLauncher;
-import fr.varchar.varlib.launching.types.Type;
+import fr.varchar.varlib.launching.Type;
 
 public class GameLauncherVanillaBuilder extends AbstractGameLauncherBuilder {
 
@@ -10,6 +10,6 @@ public class GameLauncherVanillaBuilder extends AbstractGameLauncherBuilder {
     }
 
     public GameLauncher build() {
-        return new GameLauncher(this.dir, this.version, this.versionType, Type.VANILLA, this.folderType, this.gameAuthenticator);
+        return new GameLauncher(this.dir, this.version, this.versionType, Type.VANILLA, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument);
     }
 }

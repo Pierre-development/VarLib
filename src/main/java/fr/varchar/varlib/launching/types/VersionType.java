@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class VersionType {
-
+    /*
     public static final VersionType VERSION_1_7_10 = new VersionType() {
         @Override
         public List<String> getArgs(GameLauncher gameLauncher, GameAuthenticator gameAuthenticator) {
@@ -142,5 +142,5 @@ public abstract class VersionType {
     };
 
     public abstract List<String> getArgs(GameLauncher gameLauncher, GameAuthenticator gameAuthenticator);
-
+*/
 }

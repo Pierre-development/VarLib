@@ -2,12 +2,15 @@ package fr.varchar.varlib.launching.builder;
 
 import fr.varchar.varlib.FolderType;
 import fr.varchar.varlib.GameLauncher;
-import fr.varchar.varlib.launching.types.Type;
-import fr.varchar.varlib.launching.types.VersionType;
+import fr.varchar.varlib.launching.Type;
+import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.arguments.ArgumentsManager;
+import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
 import fr.varchar.varlib.util.Util;
 
 import java.io.File;
 import java.nio.file.FileSystems;
+import java.util.Arrays;
 
 public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
 
@@ -43,18 +46,20 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
         return this;
     }
 
+
+
     @Override
     public GameLauncher build() {
         if(this.versionType == VersionType.VERSION_1_13_HIGHER) {
             if(this.folderType == FolderType.FLOW_UPDATER) {
                 if(this.autoMode) {
                     Util.FMLInfos.init(this.absoluteDir + FileSystems.getDefault().getSeparator() + this.forgeInstallerJson);
-                    return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, Util.FMLInfos.getFmlForgeVersion(), Util.FMLInfos.getFmlMcVersion(), Util.FMLInfos.getFmlMcpVersion());
+                    return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, Util.FMLInfos.getFmlForgeVersion(), Util.FMLInfos.getFmlMcVersion(), Util.FMLInfos.getFmlMcpVersion());
                 }
             }
-            return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.fmlForgeVersion, this.fmlmcVersion, this.fmlmcpVersion);
+            return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, this.fmlForgeVersion, this.fmlmcVersion, this.fmlmcpVersion);
         } else {
-            return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator);
+            return new GameLauncher(this.dir, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument);
         }
     }
 }
