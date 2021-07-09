@@ -1,15 +1,15 @@
 package fr.varchar.varlib.launching.builder;
 
-import fr.varchar.varlib.GameLauncher;
-import fr.varchar.varlib.launching.Type;
+import fr.varchar.varlib.launching.GameLauncher;
+import fr.varchar.varlib.launching.types.Type;
 
 public class GameLauncherVanillaBuilder extends AbstractGameLauncherBuilder {
 
-    public GameLauncherVanillaBuilder(String dir) {
-        super(dir);
+    public GameLauncherVanillaBuilder(String name) {
+        super(name);
     }
 
     public GameLauncher build() {
-        return new GameLauncher(this.dir, this.version, this.versionType, Type.VANILLA, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument);
+        return new GameLauncher(this.name, this.version, this.versionType, Type.VANILLA, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument);
     }
 }

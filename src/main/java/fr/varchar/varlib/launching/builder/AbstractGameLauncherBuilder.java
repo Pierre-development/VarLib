@@ -1,9 +1,9 @@
 package fr.varchar.varlib.launching.builder;
 
-import fr.varchar.varlib.FolderType;
-import fr.varchar.varlib.GameLauncher;
+import fr.varchar.varlib.launching.FolderType;
+import fr.varchar.varlib.launching.GameLauncher;
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
-import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.launching.arguments.ArgumentsManager;
 import fr.varchar.varlib.launching.arguments.CallBackArgument;
 import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
@@ -12,33 +12,45 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.List;
 
 public abstract class AbstractGameLauncherBuilder {
-    protected final String dir;
+    public final String name;
     protected String version;
     protected VersionType versionType;
     protected FolderType folderType;
     protected GameAuthenticator gameAuthenticator;
-    protected Path absoluteDir;
+    protected Path dir;
     protected final VMArgumentsManager vmArgumentsManager = new VMArgumentsManager();
     protected final ArgumentsManager argumentsManager = new ArgumentsManager();
     protected CallBackArgument callBackArgument = () -> null;
 
-    public AbstractGameLauncherBuilder(String dir) {
-        this.dir = dir;
+
+    /**
+     * @param name specify the name of the game dir
+     */
+    public AbstractGameLauncherBuilder(String name) {
+        this.name = name;
         if (System.getProperty("os.name").startsWith("Win")) {
-            this.absoluteDir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + this.dir);
+            this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + name);
         } else {
-            this.absoluteDir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "." + this.dir);
+            this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "." + name);
         }
     }
 
+    /**
+     * Set the version
+     * @param version this is the name of json indexes for assets - example : "1.12 but not "1.12.2".
+     */
     public AbstractGameLauncherBuilder setVersion(String version) {
         this.version = version;
         return this;
     }
 
+    /**
+     * set the {@link VersionType}
+     * @param versionType
+     * @return
+     */
     public AbstractGameLauncherBuilder setVersionType(VersionType versionType) {
         this.versionType = versionType;
         return this;
@@ -55,18 +67,19 @@ public abstract class AbstractGameLauncherBuilder {
     }
 
     public AbstractGameLauncherBuilder addVMArgument(String... args) {
-        this.callBackArgument = new CallBackArgument() {
-            @Override
-            public List<String> vmArgs() {
-                return Arrays.asList(args);
-            }
-        };
+        this.callBackArgument = () -> Arrays.asList(args);
+        this.callBackArgument.vmArgs();
         return this;
     }
 
-    public Path getAbsoluteDir() {
-        return absoluteDir;
+    public Path getDir() {
+        return dir;
     }
 
+
+    /**
+     * Method for build.
+     * @return the {@link GameLauncher} built.
+     */
     public abstract GameLauncher build();
 }

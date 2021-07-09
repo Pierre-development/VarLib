@@ -1,6 +1,7 @@
-package fr.varchar.varlib;
+package fr.varchar.varlib.launching;
 
 public class FolderType {
+
 
     public static final FolderType S_UPDATE = new FolderType("assets", "natives", "libs", "minecraft.jar");
     public static final FolderType FLOW_UPDATER = new FolderType("assets", "natives", "libraries", "client.jar");

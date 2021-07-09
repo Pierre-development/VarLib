@@ -1,7 +1,6 @@
 package fr.varchar.varlib.launching.arguments;
 
-import fr.varchar.varlib.GameLauncher;
-import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
+import fr.varchar.varlib.launching.GameLauncher;
 
 import java.util.List;
 

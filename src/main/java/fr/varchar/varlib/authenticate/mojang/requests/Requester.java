@@ -15,6 +15,12 @@ import java.util.Map;
 
 public class Requester {
 
+    /**
+     * Do a authentication
+     * @param username
+     * @param password
+     * @return
+     */
 
     public static String authRequest(String username, String password) {
         final Map<String, Object> map = new HashMap<>();

@@ -1,9 +1,9 @@
-package fr.varchar.varlib;
+package fr.varchar.varlib.launching;
 
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.exceptions.LaunchingException;
-import fr.varchar.varlib.launching.Type;
-import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.types.Type;
+import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.launching.arguments.ArgumentsManager;
 import fr.varchar.varlib.launching.arguments.CallBackArgument;
 import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
@@ -24,14 +24,13 @@ public class GameLauncher {
 
     private final Path dir;
     private final List<String> allArgs = new ArrayList<>();
-    private final List<String> vmArgs = new ArrayList<>();
     private final String version;
     private final Path assetsDir;
     private final Path nativesDir;
     private final Path librariesDir;
     private final Path minecraftClient;
-    private final fr.varchar.varlib.launching.VersionType versionType;
-    private final fr.varchar.varlib.launching.Type type;
+    private final VersionType versionType;
+    private final Type type;
     private final GameAuthenticator gameAuthenticator;
     private String fmlForgeVersion;
     private String fmlmcVersion;
@@ -42,6 +41,9 @@ public class GameLauncher {
     private ProcessBuilder processBuilder;
     private final CallBackArgument callBackArgument;
 
+    /**
+     * Constructor should be build with a builder : {@link fr.varchar.varlib.launching.builder.GameLauncherVanillaBuilder} or {@link fr.varchar.varlib.launching.builder.GameLauncherForgeBuilder}
+     */
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
@@ -72,12 +74,25 @@ public class GameLauncher {
         this.callBackArgument = callBackArgument;
     }
 
+    /**
+     * arguments for newer forge's version.
+     * infos can be get automatically with {@link fr.varchar.varlib.launching.builder.GameLauncherForgeBuilder#setAutoMode(boolean, String)}.
+     * @param fmlForgeVersion FML Forge version can be get in Forge's json installer.
+     * @param fmlmcVersion FML Minecraft version can be get in Forge's json installer.
+     * @param fmlmcpVersion FML mcp version can be get in Forge's json installer.
+     */
+
     public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
         this(dir, version, versionType, type, folderType, gameAuthenticator, vmArgs, args, callBackArgument);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
     }
+
+    /**
+     * Method for launch the game.
+     * @throws LaunchingException when the game can't be launched.
+     */
 
     public void launch() throws LaunchingException {
         logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
@@ -132,11 +147,11 @@ public class GameLauncher {
         return minecraftClient;
     }
 
-    public fr.varchar.varlib.launching.Type getType() {
+    public Type getType() {
         return type;
     }
 
-    public fr.varchar.varlib.launching.VersionType getVersionType() {
+    public VersionType getVersionType() {
         return versionType;
     }
 
@@ -158,10 +173,6 @@ public class GameLauncher {
 
     public VMArgumentsManager getVmArgumentsManager() {
         return vmArgumentsManager;
-    }
-
-    public List<String> getVmArgs() {
-        return vmArgs;
     }
 
     public ProcessBuilder getProcessBuilder() {

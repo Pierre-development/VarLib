@@ -1,8 +1,8 @@
 package fr.varchar.varlib.launching.arguments;
 
-import fr.varchar.varlib.GameLauncher;
-import fr.varchar.varlib.launching.Type;
-import fr.varchar.varlib.launching.VersionType;
+import fr.varchar.varlib.launching.GameLauncher;
+import fr.varchar.varlib.launching.types.Type;
+import fr.varchar.varlib.launching.types.VersionType;
 
 import java.io.File;
 import java.io.IOException;
