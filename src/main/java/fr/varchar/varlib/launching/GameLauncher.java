@@ -97,9 +97,11 @@ public class GameLauncher {
     public void launch() throws LaunchingException {
         logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
         this.processBuilder = new ProcessBuilder(this.allArgs);
+        this.processBuilder.directory(this.dir.toFile());
         this.processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         this.processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         this.processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
+        System.out.println(this.processBuilder.directory());
         try {
             Util.checkDirs(this);
         } catch (FileNotFoundException e) {
