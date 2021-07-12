@@ -13,7 +13,7 @@ public class Util {
 
     /**
      * Chek if folders : assets, libraries, natives and Minecraft client exist.
-     * @throws FileNotFoundException if file wasn't found.
+     * @throws FileNotFoundException if files wasn't found.
      */
     public static void checkDirs(GameLauncher gameLauncher) throws FileNotFoundException {
         if (!Files.exists(gameLauncher.getAssetsDir())) {
@@ -34,7 +34,7 @@ public class Util {
         private static String[] strings;
 
         /**
-         * initializing of the Forge installer's json for get FML infos.
+         * Initializing of the Forge installer's json for get FML infos.
          * @param json : it's the json of Forge installer's.
          */
 

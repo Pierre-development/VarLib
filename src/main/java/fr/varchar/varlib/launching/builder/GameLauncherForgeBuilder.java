@@ -16,7 +16,9 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
     private boolean autoMode;
     private String forgeInstallerJson;
 
-
+    /**
+     * {@inheritDoc}
+     */
     public GameLauncherForgeBuilder(String dir) {
         super(dir);
     }
@@ -36,6 +38,10 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
         return this;
     }
 
+    /**
+     * @param forgeInstallerJson
+     * @return
+     */
     public GameLauncherForgeBuilder setAutoMode(boolean autoMode, String forgeInstallerJson) {
         this.autoMode = autoMode;
         this.forgeInstallerJson = forgeInstallerJson;
@@ -43,7 +49,9 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
     }
 
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public GameLauncher build() {
         if(this.versionType == VersionType.VERSION_1_13_HIGHER) {

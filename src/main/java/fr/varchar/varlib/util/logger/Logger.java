@@ -20,7 +20,7 @@ public class Logger {
 
     /**
      *
-     * @param color set the color's message with {@link Color}
+     * @param color set the color's message with {@link Color}.
      */
     public void log(String message, String color) {
         final String date = String.format("[%s]", new SimpleDateFormat("kk:mm:ss").format(new Date()));
@@ -28,21 +28,21 @@ public class Logger {
     }
 
     /**
-     * log without colors.
+     * Log without colors.
      */
     public void log(String message) {
         this.log(message, null);
     }
 
     /**
-     * log used for errors in red.
+     * Log used for errors in red.
      */
     public void logError(String message) {
         this.log(message, RED);
     }
 
     /**
-     * log used for warns in yellow.
+     * Log used for warns in yellow.
      */
     public void logWarn(String message) {
         this.log(message, YELLOW);

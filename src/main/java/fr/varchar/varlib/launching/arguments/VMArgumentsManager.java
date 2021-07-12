@@ -14,6 +14,9 @@ import java.util.stream.Stream;
 
 public class VMArgumentsManager {
 
+    /**
+     * Arguments come from OpenLauncherLib
+     */
 
     private List<String> vmArgs(GameLauncher gameLauncher, CallBackArgument callBackArgument) {
         final List<String> args = new ArrayList<>();

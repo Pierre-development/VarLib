@@ -51,7 +51,6 @@ public class GameLauncher {
             this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "." + dir);
         }
 
-
         if (!Files.exists(this.dir)) {
             try {
                 Files.createDirectories(this.dir);

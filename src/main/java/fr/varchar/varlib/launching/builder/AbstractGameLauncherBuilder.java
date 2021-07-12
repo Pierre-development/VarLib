@@ -37,6 +37,13 @@ public abstract class AbstractGameLauncherBuilder {
         } else {
             this.dir = Paths.get(System.getProperty("user.home") + FileSystems.getDefault().getSeparator() + "." + name);
         }
+        if(!Files.exists(this.dir)) {
+            try {
+                Files.createDirectory(this.dir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -49,25 +56,32 @@ public abstract class AbstractGameLauncherBuilder {
     }
 
     /**
-     * set the {@link VersionType}
-     * @param versionType
-     * @return
+     * Set the {@link VersionType}.
      */
     public AbstractGameLauncherBuilder setVersionType(VersionType versionType) {
         this.versionType = versionType;
         return this;
     }
 
+    /**
+     * Set the {@link FolderType} for choose the name of the client file and folders.
+     */
     public AbstractGameLauncherBuilder setFolderType(FolderType folderType) {
         this.folderType = folderType;
         return this;
     }
 
+    /**
+     * Set the {@link GameAuthenticator}.
+     */
     public AbstractGameLauncherBuilder setGameAuthenticator(GameAuthenticator gameAuthenticator) {
         this.gameAuthenticator = gameAuthenticator;
         return this;
     }
 
+    /**
+     * Add VM arguments to the launch command.
+     */
     public AbstractGameLauncherBuilder addVMArgument(String... args) {
         this.callBackArgument = () -> Arrays.asList(args);
         this.callBackArgument.vmArgs();

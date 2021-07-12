@@ -9,6 +9,10 @@ import java.util.List;
 
 public class ArgumentsManager extends AbstractArguments {
 
+    /**
+     * Arguments come from OpenLauncherLib
+     */
+
     @Override
     public List<String> getArgs(GameLauncher gameLauncher) {
         final List<String> args = new ArrayList<>();
