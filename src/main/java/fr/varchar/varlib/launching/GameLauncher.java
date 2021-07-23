@@ -35,16 +35,16 @@ public class GameLauncher {
     private String fmlForgeVersion;
     private String fmlmcVersion;
     private String fmlmcpVersion;
-    private final Logger logger = new Logger(Logger.DEFAULT);
     private final VMArgumentsManager vmArgumentsManager;
     private final ArgumentsManager argumentsManager;
     private ProcessBuilder processBuilder;
     private final CallBackArgument callBackArgument;
+    private final Logger logger;
 
     /**
      * Constructor should be build with a builder : {@link fr.varchar.varlib.launching.builder.GameLauncherVanillaBuilder} or {@link fr.varchar.varlib.launching.builder.GameLauncherForgeBuilder}
      */
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, Logger logger) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
         } else {
@@ -71,6 +71,7 @@ public class GameLauncher {
         this.vmArgumentsManager = vmArgs;
         this.argumentsManager = args;
         this.callBackArgument = callBackArgument;
+        this.logger = logger;
     }
 
     /**
@@ -81,8 +82,8 @@ public class GameLauncher {
      * @param fmlmcpVersion FML mcp version can be get in Forge's json installer.
      */
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
-        this(dir, version, versionType, type, folderType, gameAuthenticator, vmArgs, args, callBackArgument);
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, Logger logger, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+        this(dir, version, versionType, type, folderType, gameAuthenticator, vmArgs, args, callBackArgument, logger);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
         this.fmlmcpVersion = fmlmcpVersion;
@@ -94,17 +95,17 @@ public class GameLauncher {
      */
 
     public void launch() throws LaunchingException {
-        logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
+        this.logger.log("This library was created by VarChar | the discord: https://discord.com/invite/CjfZQye3GV (THIS IS NOT AN ERROR)", Color.RED);
         this.processBuilder = new ProcessBuilder(this.allArgs);
         this.processBuilder.directory(this.dir.toFile());
         this.processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
         this.processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         this.processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
-        System.out.println(this.processBuilder.directory());
         try {
             Util.checkDirs(this);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            return;
         }
         this.allArgs.addAll(this.vmArgumentsManager.getVMArgs(this, this.callBackArgument));
         this.allArgs.addAll(this.vmArgumentsManager.getClassPath(this));
@@ -114,13 +115,19 @@ public class GameLauncher {
         for (String string : this.allArgs) {
             sb.append(string + " ");
         }
-
-        System.out.println(sb);
+        Process process;
+        this.logger.log(sb.toString(), Color.GREEN);
         try {
-            this.processBuilder.start();
+            process = this.processBuilder.start();
         } catch (IOException e) {
             e.printStackTrace();
             throw new LaunchingException("can't start Minecraft client", e);
+        }
+
+        try {
+            process.waitFor();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

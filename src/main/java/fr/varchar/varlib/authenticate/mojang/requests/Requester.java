@@ -1,6 +1,6 @@
 package fr.varchar.varlib.authenticate.mojang.requests;
 
-import fr.varchar.varlib.authenticate.mojang.Utils;
+import com.google.gson.Gson;
 import fr.varchar.varlib.exceptions.AuthenticationException;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -14,14 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Requester {
-
-    /**
-     * Do a authentication
-     * @param username
-     * @param password
-     * @return
-     */
-
+    
+    private static final Gson GSON = new Gson();
+    
     public static String authRequest(String username, String password) {
         final Map<String, Object> map = new HashMap<>();
         final Map<String, Object> map2 = new HashMap<>();
@@ -35,7 +30,7 @@ public class Requester {
         map3.put("username", username);
         map3.put("password", password);
 
-        return Utils.gson.toJson(map3);
+        return Requester.GSON.toJson(map3);
     }
 
     public static String refreshRequest(String accessToken, String clientToken) {
@@ -45,7 +40,7 @@ public class Requester {
         map.put("clientToken", clientToken);
 
 
-        return Utils.gson.toJson(map);
+        return Requester.GSON.toJson(map);
     }
 
     public static String validateRequest(String accessToken) {
@@ -53,7 +48,7 @@ public class Requester {
 
         map.put("accessToken", accessToken);
 
-        return Utils.gson.toJson(map);
+        return Requester.GSON.toJson(map);
     }
 
     public static String signOutRequest(String username, String password) {
@@ -61,7 +56,7 @@ public class Requester {
         map.put("username", username);
         map.put("password", password);
 
-        return Utils.gson.toJson(map);
+        return Requester.GSON.toJson(map);
     }
 
     public static String invalidateRequest(String accessToken, String clientToken) {
@@ -70,7 +65,7 @@ public class Requester {
         map.put("accessToken", accessToken);
         map.put("clientToken", clientToken);
 
-        return Utils.gson.toJson(map);
+        return Requester.GSON.toJson(map);
     }
 
     public static Object sendRequest(String endPoint, String jsonPlayload, Class model) throws AuthenticationException {
@@ -102,7 +97,7 @@ public class Requester {
             if (model == null) {
                 return null;
             } else {
-                return Utils.gson.fromJson(br.readLine(), model);
+                return Requester.GSON.fromJson(br.readLine(), model);
             }
         } catch (IOException e) {
             throw new AuthenticationException("can't send request", e);

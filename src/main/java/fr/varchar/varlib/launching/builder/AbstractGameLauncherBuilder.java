@@ -3,10 +3,12 @@ package fr.varchar.varlib.launching.builder;
 import fr.varchar.varlib.launching.FolderType;
 import fr.varchar.varlib.launching.GameLauncher;
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
+import fr.varchar.varlib.launching.arguments.AbstractArguments;
 import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.launching.arguments.ArgumentsManager;
 import fr.varchar.varlib.launching.arguments.CallBackArgument;
 import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
+import fr.varchar.varlib.util.logger.Logger;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -25,6 +27,7 @@ public abstract class AbstractGameLauncherBuilder {
     protected final VMArgumentsManager vmArgumentsManager = new VMArgumentsManager();
     protected final ArgumentsManager argumentsManager = new ArgumentsManager();
     protected CallBackArgument callBackArgument = () -> null;
+    protected Logger logger;
 
 
     /**
@@ -88,10 +91,14 @@ public abstract class AbstractGameLauncherBuilder {
         return this;
     }
 
+    public AbstractGameLauncherBuilder setLogger(Logger logger) {
+        this.logger = logger;
+        return this;
+    }
+
     public Path getDir() {
         return dir;
     }
-
 
     /**
      * Method for build.
