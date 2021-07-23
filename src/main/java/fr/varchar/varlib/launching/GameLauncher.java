@@ -115,19 +115,13 @@ public class GameLauncher {
         for (String string : this.allArgs) {
             sb.append(string + " ");
         }
-        Process process;
+
         this.logger.log(sb.toString(), Color.GREEN);
         try {
-            process = this.processBuilder.start();
+            this.processBuilder.start();
         } catch (IOException e) {
             e.printStackTrace();
             throw new LaunchingException("can't start Minecraft client", e);
-        }
-
-        try {
-            process.waitFor();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
