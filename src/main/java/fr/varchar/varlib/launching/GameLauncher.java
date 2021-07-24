@@ -2,11 +2,11 @@ package fr.varchar.varlib.launching;
 
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.exceptions.LaunchingException;
+import fr.varchar.varlib.launching.arguments.ArgumentsManager;
+import fr.varchar.varlib.launching.arguments.ICallBackArgument;
+import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
 import fr.varchar.varlib.launching.types.Type;
 import fr.varchar.varlib.launching.types.VersionType;
-import fr.varchar.varlib.launching.arguments.ArgumentsManager;
-import fr.varchar.varlib.launching.arguments.CallBackArgument;
-import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
 import fr.varchar.varlib.util.Util;
 import fr.varchar.varlib.util.logger.Color;
 import fr.varchar.varlib.util.logger.Logger;
@@ -38,13 +38,13 @@ public class GameLauncher {
     private final VMArgumentsManager vmArgumentsManager;
     private final ArgumentsManager argumentsManager;
     private ProcessBuilder processBuilder;
-    private final CallBackArgument callBackArgument;
+    private final ICallBackArgument callBackArgument;
     private final Logger logger;
 
     /**
      * Constructor should be build with a builder : {@link fr.varchar.varlib.launching.builder.GameLauncherVanillaBuilder} or {@link fr.varchar.varlib.launching.builder.GameLauncherForgeBuilder}
      */
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, Logger logger) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, ICallBackArgument callBackArgument, Logger logger) {
         if (System.getProperty("os.name").startsWith("Win")) {
             this.dir = Paths.get(System.getenv("appdata") + FileSystems.getDefault().getSeparator() + "." + dir);
         } else {
@@ -82,7 +82,7 @@ public class GameLauncher {
      * @param fmlmcpVersion FML mcp version can be get in Forge's json installer.
      */
 
-    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, CallBackArgument callBackArgument, Logger logger, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
+    public GameLauncher(String dir, String version, VersionType versionType, Type type, FolderType folderType, GameAuthenticator gameAuthenticator, VMArgumentsManager vmArgs, ArgumentsManager args, ICallBackArgument callBackArgument, Logger logger, String fmlForgeVersion, String fmlmcVersion, String fmlmcpVersion) {
         this(dir, version, versionType, type, folderType, gameAuthenticator, vmArgs, args, callBackArgument, logger);
         this.fmlForgeVersion = fmlForgeVersion;
         this.fmlmcVersion = fmlmcVersion;
@@ -115,19 +115,13 @@ public class GameLauncher {
         for (String string : this.allArgs) {
             sb.append(string + " ");
         }
-        Process process;
+
         this.logger.log(sb.toString(), Color.GREEN);
         try {
-            process = this.processBuilder.start();
+            this.processBuilder.start();
         } catch (IOException e) {
             e.printStackTrace();
             throw new LaunchingException("can't start Minecraft client", e);
-        }
-
-        try {
-            process.waitFor();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

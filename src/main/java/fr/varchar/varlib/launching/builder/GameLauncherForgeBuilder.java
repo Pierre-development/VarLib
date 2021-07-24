@@ -54,19 +54,19 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
      */
     @Override
     public GameLauncher build() {
-        if(this.logger == null) {
+        if (this.logger == null) {
             this.logger = new Logger(Logger.DEFAULT);
         }
-        if(this.versionType == VersionType.VERSION_1_13_HIGHER) {
-            if(this.folderType == FolderType.FLOW_UPDATER) {
-                if(this.autoMode) {
+        if (this.versionType == VersionType.VERSION_1_13_HIGHER) {
+            if (this.folderType == FolderType.FLOW_UPDATER) {
+                if (this.autoMode) {
                     Util.FMLInfos.init(this.dir + FileSystems.getDefault().getSeparator() + this.forgeInstallerJson);
-                    return new GameLauncher(this.name, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, this.logger, Util.FMLInfos.getFmlForgeVersion(), Util.FMLInfos.getFmlMcVersion(), Util.FMLInfos.getFmlMcpVersion());
+                    this.fmlForgeVersion = Util.FMLInfos.getFmlForgeVersion();
+                    this.fmlmcVersion = Util.FMLInfos.getFmlMcVersion();
+                    this.fmlmcpVersion = Util.FMLInfos.getFmlMcpVersion();
                 }
             }
-            return new GameLauncher(this.name, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, this.logger, this.fmlForgeVersion, this.fmlmcVersion, this.fmlmcpVersion);
-        } else {
-            return new GameLauncher(this.name, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, this.logger);
         }
+        return new GameLauncher(this.name, this.version, this.versionType, Type.FORGE, this.folderType, this.gameAuthenticator, this.vmArgumentsManager, this.argumentsManager, this.callBackArgument, this.logger, this.fmlForgeVersion, this.fmlmcVersion, this.fmlmcpVersion);
     }
 }

@@ -1,13 +1,12 @@
 package fr.varchar.varlib.launching.builder;
 
+import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
 import fr.varchar.varlib.launching.FolderType;
 import fr.varchar.varlib.launching.GameLauncher;
-import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
-import fr.varchar.varlib.launching.arguments.AbstractArguments;
-import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.launching.arguments.ArgumentsManager;
-import fr.varchar.varlib.launching.arguments.CallBackArgument;
+import fr.varchar.varlib.launching.arguments.ICallBackArgument;
 import fr.varchar.varlib.launching.arguments.VMArgumentsManager;
+import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.util.logger.Logger;
 
 import java.io.IOException;
@@ -18,7 +17,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 public abstract class AbstractGameLauncherBuilder {
-    public final String name;
+    protected final String name;
     protected String version;
     protected VersionType versionType;
     protected FolderType folderType;
@@ -26,7 +25,7 @@ public abstract class AbstractGameLauncherBuilder {
     protected Path dir;
     protected final VMArgumentsManager vmArgumentsManager = new VMArgumentsManager();
     protected final ArgumentsManager argumentsManager = new ArgumentsManager();
-    protected CallBackArgument callBackArgument = () -> null;
+    protected ICallBackArgument callBackArgument = () -> null;
     protected Logger logger;
 
 
@@ -96,6 +95,11 @@ public abstract class AbstractGameLauncherBuilder {
         return this;
     }
 
+    public AbstractGameLauncherBuilder setJavaPath(String javaPath) {
+        this.vmArgumentsManager.javaPath = javaPath;
+        return this;
+    }
+
     public Path getDir() {
         return dir;
     }
@@ -105,4 +109,5 @@ public abstract class AbstractGameLauncherBuilder {
      * @return the {@link GameLauncher} built.
      */
     public abstract GameLauncher build();
+
 }

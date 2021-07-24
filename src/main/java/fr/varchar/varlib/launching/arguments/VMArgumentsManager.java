@@ -14,13 +14,15 @@ import java.util.stream.Stream;
 
 public class VMArgumentsManager {
 
+    public String javaPath = "java";
+
     /**
      * Arguments come from OpenLauncherLib
      */
 
-    private List<String> vmArgs(GameLauncher gameLauncher, CallBackArgument callBackArgument) {
+    private List<String> vmArgs(GameLauncher gameLauncher, ICallBackArgument callBackArgument) {
         final List<String> args = new ArrayList<>();
-        args.add("java");
+        args.add(this.javaPath);
         args.add("-Djava.library.path=" + gameLauncher.getNativesDir());
         args.add("-Dfml.ignoreInvalidMinecraftCertificates=true");
         args.add("-Dfml.ignorePatchDiscrepancies=true");
@@ -84,11 +86,12 @@ public class VMArgumentsManager {
         return classpath;
     }
 
-    public List<String> getVMArgs(GameLauncher gameLauncher, CallBackArgument callBackArgument) {
+    public List<String> getVMArgs(GameLauncher gameLauncher, ICallBackArgument callBackArgument) {
         return this.vmArgs(gameLauncher, callBackArgument);
     }
 
     public List<String> getClassPath(GameLauncher gameLauncher) {
         return this.classPath(gameLauncher);
     }
+
 }
