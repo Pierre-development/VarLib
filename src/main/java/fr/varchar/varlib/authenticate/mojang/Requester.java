@@ -1,6 +1,8 @@
-package fr.varchar.varlib.authenticate.mojang.requests;
+package fr.varchar.varlib.authenticate.mojang;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import fr.varchar.varlib.exceptions.AuthenticationException;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -10,62 +12,58 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Requester {
     
-    private static final Gson GSON = new Gson();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     
-    public static String authRequest(String username, String password) {
-        final Map<String, Object> map = new HashMap<>();
-        final Map<String, Object> map2 = new HashMap<>();
-        final Map<String, Object> map3 = new HashMap<>();
+    protected static String authRequest(String username, String password) {
+        final JsonObject jsonObject = new JsonObject();
+        final JsonObject jsonObjectUser = new JsonObject();
 
-        map.put("name", "Minecraft");
-        map.put("version", 1);
-        map2.put("agent", map);
+        jsonObject.addProperty("name", "Minecraft");
+        jsonObject.addProperty("version", 1);
+        jsonObjectUser.add("agent", jsonObject);
 
-        map3.putAll(map2);
-        map3.put("username", username);
-        map3.put("password", password);
+        jsonObjectUser.addProperty("username", username);
+        jsonObjectUser.addProperty("password", password);
 
-        return Requester.GSON.toJson(map3);
+        return Requester.GSON.toJson(jsonObjectUser);
     }
 
-    public static String refreshRequest(String accessToken, String clientToken) {
-        final Map<String, String> map = new HashMap<>();
+    protected static String refreshRequest(String accessToken, String clientToken) {
+        final JsonObject jsonObject = new JsonObject();
 
-        map.put("accessToken", accessToken);
-        map.put("clientToken", clientToken);
+        jsonObject.addProperty("accessToken", accessToken);
+        jsonObject.addProperty("clientToken", clientToken);
 
 
-        return Requester.GSON.toJson(map);
+        return Requester.GSON.toJson(jsonObject);
     }
 
-    public static String validateRequest(String accessToken) {
-        final Map<String, String> map = new HashMap<>();
+    protected static String validateRequest(String accessToken) {
+        final JsonObject jsonObject = new JsonObject();
 
-        map.put("accessToken", accessToken);
+        jsonObject.addProperty("accessToken", accessToken);
 
-        return Requester.GSON.toJson(map);
+        return Requester.GSON.toJson(jsonObject);
     }
 
-    public static String signOutRequest(String username, String password) {
-        final Map<String, String> map = new HashMap<>();
-        map.put("username", username);
-        map.put("password", password);
+    protected static String signOutRequest(String username, String password) {
+        final JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("username", username);
+        jsonObject.addProperty("password", password);
 
-        return Requester.GSON.toJson(map);
+        return Requester.GSON.toJson(jsonObject);
     }
 
-    public static String invalidateRequest(String accessToken, String clientToken) {
-        final Map<String, String> map = new HashMap<>();
+    protected static String invalidateRequest(String accessToken, String clientToken) {
+        final JsonObject jsonObject = new JsonObject();
 
-        map.put("accessToken", accessToken);
-        map.put("clientToken", clientToken);
+        jsonObject.addProperty("accessToken", accessToken);
+        jsonObject.addProperty("clientToken", clientToken);
 
-        return Requester.GSON.toJson(map);
+        return Requester.GSON.toJson(jsonObject);
     }
 
     public static Object sendRequest(String endPoint, String jsonPlayload, Class model) throws AuthenticationException {
