@@ -23,9 +23,10 @@ public class ArgumentsManager extends AbstractArguments {
             args.add("--accessToken");
             args.add(gameLauncher.getGameAuthenticator().getAccessToken());
 
-            args.add("--clientToken");
-            args.add(gameLauncher.getGameAuthenticator().getClientToken());
-
+            if (gameLauncher.getGameAuthenticator().getClientToken() != null) {
+                args.add("--clientToken");
+                args.add(gameLauncher.getGameAuthenticator().getClientToken());
+            }
 
             args.add("--version");
             args.add(gameLauncher.getVersion());
@@ -58,6 +59,11 @@ public class ArgumentsManager extends AbstractArguments {
             args.add("--accessToken");
             args.add(gameLauncher.getGameAuthenticator().getAccessToken());
 
+            if (gameLauncher.getGameAuthenticator().getClientToken() != null) {
+                args.add("--clientToken");
+                args.add(gameLauncher.getGameAuthenticator().getClientToken());
+            }
+
             args.add("--version");
             args.add(gameLauncher.getVersion());
 
@@ -83,7 +89,7 @@ public class ArgumentsManager extends AbstractArguments {
                 args.add("--tweakClass");
                 args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
             }
-        } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER) {
+        } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER) {
             args.add("--username");
             args.add(gameLauncher.getGameAuthenticator().getUsername());
 
