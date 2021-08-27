@@ -60,7 +60,8 @@ public class GameLauncherForgeBuilder extends AbstractGameLauncherBuilder {
         if (this.versionType == VersionType.VERSION_1_13_HIGHER) {
             if (this.folderType == FolderType.FLOW_UPDATER) {
                 if (this.autoMode) {
-                    Util.FMLInfos.init(this.dir + FileSystems.getDefault().getSeparator() + this.forgeInstallerJson);
+                    Util.FMLInfos.init(this.dir.resolve(this.forgeInstallerJson).toString());
+                    System.out.println(this.dir.resolve(this.forgeInstallerJson));
                     this.fmlForgeVersion = Util.FMLInfos.getFmlForgeVersion();
                     this.fmlmcVersion = Util.FMLInfos.getFmlMcVersion();
                     this.fmlmcpVersion = Util.FMLInfos.getFmlMcpVersion();

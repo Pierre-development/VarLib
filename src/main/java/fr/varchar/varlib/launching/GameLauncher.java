@@ -59,10 +59,10 @@ public class GameLauncher {
             }
         }
 
-        this.assetsDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getAssetsDir());
-        this.nativesDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getNativesDir());
-        this.librariesDir = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getLibrariesDir());
-        this.minecraftClient = Paths.get(this.dir.toAbsolutePath() + FileSystems.getDefault().getSeparator() + folderType.getMinecraftClient());
+        this.assetsDir = this.dir.resolve(folderType.getAssetsDir());
+        this.nativesDir = this.dir.resolve(folderType.getNativesDir());
+        this.librariesDir = this.dir.resolve(folderType.getLibrariesDir());
+        this.minecraftClient = this.dir.resolve(folderType.getMinecraftClient());
 
         this.versionType = versionType;
         this.type = type;
