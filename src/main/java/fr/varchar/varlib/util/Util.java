@@ -73,7 +73,7 @@ public class Util {
          * @return the mcp version.
          */
         public static String getFmlMcpVersion() {
-            return strings[9].replaceAll("\"]}", "");
+            return strings[9].replaceAll("\".*$", "");
         }
     }
 }

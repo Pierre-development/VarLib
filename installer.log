@@ -1,7 +1,9 @@
 JVM info: Oracle Corporation - 1.8.0_291 - 25.291-b10
 java.net.preferIPv4Stack=true
-Installing 1.16.5-forge-36.1.0
+Found java version 1.8.0_291
+Target Directory: /home/varchar/.eedds
 Extracting json
+Considering minecraft client jar
 Downloading libraries
 Considering library net.minecraftforge:forge:1.16.5-36.1.0
   Extracting library from /maven/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0.jar
@@ -157,46 +159,46 @@ Considering library org.ow2.asm:asm:6.1.1
 Considering library trove:trove:1.0.2
   Downloading library from https://maven.creeperhost.net/trove/trove/1.0.2/trove-1.0.2.jar
     Download completed: Checksum validated.
-Created Temporary Directory: /tmp/forge_installer3174790837792699613
+Created Temporary Directory: /tmp/forge_installer484218787784030503
   Extracting: /data/client.lzma
 Building Processors
 ===============================================================================
   MainClass: net.minecraftforge.installertools.ConsoleTool
   Classpath:
-    /home/varchar/.teesteeee/libraries/net/minecraftforge/installertools/1.1.11/installertools-1.1.11.jar
-    /home/varchar/.teesteeee/libraries/net/md-5/SpecialSource/1.8.5/SpecialSource-1.8.5.jar
-    /home/varchar/.teesteeee/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
-    /home/varchar/.teesteeee/libraries/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar
-    /home/varchar/.teesteeee/libraries/de/siegmar/fastcsv/1.0.2/fastcsv-1.0.2.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-commons/6.1.1/asm-commons-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/com/google/guava/guava/20.0/guava-20.0.jar
-    /home/varchar/.teesteeee/libraries/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-analysis/6.1.1/asm-analysis-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-tree/6.1.1/asm-tree-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm/6.1.1/asm-6.1.1.jar
-  Args: --task, MCP_DATA, --input, /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550.zip, --output, /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt, --key, mappings
+    /home/varchar/.eedds/libraries/net/minecraftforge/installertools/1.1.11/installertools-1.1.11.jar
+    /home/varchar/.eedds/libraries/net/md-5/SpecialSource/1.8.5/SpecialSource-1.8.5.jar
+    /home/varchar/.eedds/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
+    /home/varchar/.eedds/libraries/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar
+    /home/varchar/.eedds/libraries/de/siegmar/fastcsv/1.0.2/fastcsv-1.0.2.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-commons/6.1.1/asm-commons-6.1.1.jar
+    /home/varchar/.eedds/libraries/com/google/guava/guava/20.0/guava-20.0.jar
+    /home/varchar/.eedds/libraries/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-analysis/6.1.1/asm-analysis-6.1.1.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-tree/6.1.1/asm-tree-6.1.1.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm/6.1.1/asm-6.1.1.jar
+  Args: --task, MCP_DATA, --input, /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550.zip, --output, /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt, --key, mappings
 Task: MCP_DATA
-Input:  /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550.zip
-Output: /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
+Input:  /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550.zip
+Output: /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
 Key:    mappings
 Extracting: config/joined.tsrg
 ===============================================================================
   Cache: 
-    /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar Missing
-    /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar Missing
+    /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar Missing
+    /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar Missing
   MainClass: net.minecraftforge.jarsplitter.ConsoleTool
   Classpath:
-    /home/varchar/.teesteeee/libraries/net/minecraftforge/jarsplitter/1.1.2/jarsplitter-1.1.2.jar
-    /home/varchar/.teesteeee/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
-  Args: --input, /home/varchar/.teesteeee/client.jar, --slim, /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar, --extra, /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar, --srg, /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
+    /home/varchar/.eedds/libraries/net/minecraftforge/jarsplitter/1.1.2/jarsplitter-1.1.2.jar
+    /home/varchar/.eedds/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
+  Args: --input, /home/varchar/.eedds/client.jar, --slim, /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar, --extra, /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar, --srg, /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
 Splitter: 
-  Input:    /home/varchar/.teesteeee/client.jar
-  Input:    /home/varchar/.teesteeee/client.jar
-  Slim:     /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar
+  Input:    /home/varchar/.eedds/client.jar
+  Input:    /home/varchar/.eedds/client.jar
+  Slim:     /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar
   Data:     null
-  Extra:    /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar
+  Extra:    /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar
   Including data in extra
-  SRG:   /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
+  SRG:   /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
   InputSha: 37fd3c903861eeff3bc24b71eed48f828b5269c8
   SrgSha:   461d06f1f73f42783ef8fe3a3858eb5fad92a18c
 Splitting: 
@@ -14846,48 +14848,48 @@ Splitting:
   Data  assets/minecraft/blockstates/birch_trapdoor.json
   Data  assets/minecraft/blockstates/black_glazed_terracotta.json
   Data  assets/minecraft/blockstates/brown_glazed_terracotta.json
-  Output: /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar Checksum Validated: 045d6edac8fe1b004e159c49704b5b729f551079
-  Output: /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar Checksum Validated: 4aef4168f94d97bc73bf510213b2518942f931d1
+  Output: /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar Checksum Validated: 045d6edac8fe1b004e159c49704b5b729f551079
+  Output: /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-extra.jar Checksum Validated: 4aef4168f94d97bc73bf510213b2518942f931d1
 ===============================================================================
   MainClass: net.md_5.specialsource.SpecialSource
   Classpath:
-    /home/varchar/.teesteeee/libraries/net/md-5/SpecialSource/1.8.3/SpecialSource-1.8.3.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-commons/6.1.1/asm-commons-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar
-    /home/varchar/.teesteeee/libraries/com/google/guava/guava/20.0/guava-20.0.jar
-    /home/varchar/.teesteeee/libraries/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-analysis/6.1.1/asm-analysis-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm-tree/6.1.1/asm-tree-6.1.1.jar
-    /home/varchar/.teesteeee/libraries/org/ow2/asm/asm/6.1.1/asm-6.1.1.jar
-  Args: --in-jar, /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar, --out-jar, /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar, --srg-in, /home/varchar/.teesteeee/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
+    /home/varchar/.eedds/libraries/net/md-5/SpecialSource/1.8.3/SpecialSource-1.8.3.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-commons/6.1.1/asm-commons-6.1.1.jar
+    /home/varchar/.eedds/libraries/net/sf/jopt-simple/jopt-simple/4.9/jopt-simple-4.9.jar
+    /home/varchar/.eedds/libraries/com/google/guava/guava/20.0/guava-20.0.jar
+    /home/varchar/.eedds/libraries/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-analysis/6.1.1/asm-analysis-6.1.1.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm-tree/6.1.1/asm-tree-6.1.1.jar
+    /home/varchar/.eedds/libraries/org/ow2/asm/asm/6.1.1/asm-6.1.1.jar
+  Args: --in-jar, /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-slim.jar, --out-jar, /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar, --srg-in, /home/varchar/.eedds/libraries/de/oceanlabs/mcp/mcp_config/1.16.5-20210115.111550/mcp_config-1.16.5-20210115.111550-mappings.txt
 Loading mappings
 0 packages, 5447 classes, 21481 fields, 38359 methods
 Remapping final jar
 ===============================================================================
   Cache: 
-    /home/varchar/.teesteeee/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar Missing
+    /home/varchar/.eedds/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar Missing
   MainClass: net.minecraftforge.binarypatcher.ConsoleTool
   Classpath:
-    /home/varchar/.teesteeee/libraries/net/minecraftforge/binarypatcher/1.0.12/binarypatcher-1.0.12.jar
-    /home/varchar/.teesteeee/libraries/commons-io/commons-io/2.4/commons-io-2.4.jar
-    /home/varchar/.teesteeee/libraries/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar
-    /home/varchar/.teesteeee/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
-    /home/varchar/.teesteeee/libraries/com/github/jponge/lzma-java/1.3/lzma-java-1.3.jar
-    /home/varchar/.teesteeee/libraries/com/nothome/javaxdelta/2.0.1/javaxdelta-2.0.1.jar
-    /home/varchar/.teesteeee/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
-    /home/varchar/.teesteeee/libraries/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0.jar
-    /home/varchar/.teesteeee/libraries/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar
-    /home/varchar/.teesteeee/libraries/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar
-    /home/varchar/.teesteeee/libraries/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar
-    /home/varchar/.teesteeee/libraries/trove/trove/1.0.2/trove-1.0.2.jar
-  Args: --clean, /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar, --output, /home/varchar/.teesteeee/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar, --apply, /tmp/forge_installer3174790837792699613/data/client.lzma
+    /home/varchar/.eedds/libraries/net/minecraftforge/binarypatcher/1.0.12/binarypatcher-1.0.12.jar
+    /home/varchar/.eedds/libraries/commons-io/commons-io/2.4/commons-io-2.4.jar
+    /home/varchar/.eedds/libraries/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar
+    /home/varchar/.eedds/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar
+    /home/varchar/.eedds/libraries/com/github/jponge/lzma-java/1.3/lzma-java-1.3.jar
+    /home/varchar/.eedds/libraries/com/nothome/javaxdelta/2.0.1/javaxdelta-2.0.1.jar
+    /home/varchar/.eedds/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+    /home/varchar/.eedds/libraries/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0.jar
+    /home/varchar/.eedds/libraries/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar
+    /home/varchar/.eedds/libraries/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar
+    /home/varchar/.eedds/libraries/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar
+    /home/varchar/.eedds/libraries/trove/trove/1.0.2/trove-1.0.2.jar
+  Args: --clean, /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar, --output, /home/varchar/.eedds/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar, --apply, /tmp/forge_installer484218787784030503/data/client.lzma
 Applying: 
-  Clean:     /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar
-  Output:    /home/varchar/.teesteeee/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar
+  Clean:     /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar
+  Output:    /home/varchar/.eedds/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar
   KeepData:  false
   Unpatched: false
-  Patches:   /tmp/forge_installer3174790837792699613/data/client.lzma
-Loading patches file: /tmp/forge_installer3174790837792699613/data/client.lzma
+  Patches:   /tmp/forge_installer484218787784030503/data/client.lzma
+Loading patches file: /tmp/forge_installer484218787784030503/data/client.lzma
   Reading patch com.mojang.blaze3d.platform.GlStateManager$1.binpatch
     Checksum: 859099ff Exists: true
   Reading patch com.mojang.blaze3d.platform.GlStateManager$AlphaState.binpatch
@@ -17382,7 +17384,7 @@ Loading patches file: /tmp/forge_installer3174790837792699613/data/client.lzma
     Checksum: fdd833d6 Exists: true
   Reading patch net.minecraft.world.storage.WorldSavedData.binpatch
     Checksum: f3fb0286 Exists: true
-Processing: /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar
+Processing: /home/varchar/.eedds/libraries/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar
   Patching net/minecraft/client/GameSettings$1 1/1
   Patching net/minecraft/client/Minecraft 1/1
   Patching net/minecraft/client/Minecraft$WorldSelectionType 1/1
@@ -18630,5 +18632,6 @@ Processing: /home/varchar/.teesteeee/libraries/net/minecraft/client/1.16.5-20210
   Patching net/minecraft/tags/TagRegistry$OptionalNamedTag 1/1
   Patching net/minecraft/tags/ITagCollectionSupplier$2 1/1
   Patching net/minecraft/world/biome/BiomeAmbience$GrassColorModifier$ColorModifier 1/1
-  Output: /home/varchar/.teesteeee/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar Checksum Validated: 6c97b4986b89c49fe1d36d1d4e2421697e905cce
-Finished!
+  Output: /home/varchar/.eedds/libraries/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-client.jar Checksum Validated: 6c97b4986b89c49fe1d36d1d4e2421697e905cce
+Successfully installed client into launcher.
+You can delete this installer file now if you wish
