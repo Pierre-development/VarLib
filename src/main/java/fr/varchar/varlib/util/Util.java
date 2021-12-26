@@ -31,7 +31,7 @@ public class Util {
     public static class FMLInfos {
 
         private static String json;
-        private static String[] strings;
+        private static String[] result;
 
         /**
          * Initializing of the Forge installer's json for get FML infos.
@@ -48,9 +48,7 @@ public class Util {
             }
             final JsonObject jsonObject = jsonElements.getAsJsonObject();
             final JsonElement jsonElement = jsonObject.get("arguments");
-            strings = jsonElement.toString().split("\",\"");
-
-            
+            result = jsonElement.toString().split("\",\"");
         }
 
         /**
@@ -58,7 +56,7 @@ public class Util {
          */
 
         public static String getFmlForgeVersion() {
-            return strings[3];
+            return result[3];
         }
 
         /**
@@ -66,14 +64,14 @@ public class Util {
          */
 
         public static String getFmlMcVersion() {
-            return strings[5];
+            return result[5];
         }
 
         /**
          * @return the mcp version.
          */
         public static String getFmlMcpVersion() {
-            return strings[9].replaceAll("\".*$", "");
+            return result[9].replaceAll("\".*$", "");
         }
     }
 }

@@ -1,23 +1,45 @@
-# Installation
+<h1 align="center">
+  VarLib
+</h1>
+<p align="center">
+    <a href="https://www.java.com/fr/">
+        <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Made with Java">
+    </a>
+    <a href="https://github.com/Pierre-development/VarLib">
+        <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Uses git">
+    </a>
+    <br>
+    <a href="https://search.maven.org/artifact/fr.varchar-dev/varlib">
+        <img src="https://img.shields.io/maven-central/v/fr.varchar-dev/varlib.svg?style=for-the-badge" alt="Uses git">
+    </a>
+    <br>
+    <a href="https://github.com/Asthowen/AlphacodersWallpaperDownloader/stargazers">
+        <img src="https://img.shields.io/github/stars/Pierre-development/VarLib?style=for-the-badge" alt="Stars">
+    </a>
+    <a href="https://github.com/Pierre-development/VarLib/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/Pierre-development/VarLib?style=for-the-badge" alt="License">
+    </a>
+</p>
+<h3 align="center">
+    <strong>Java Library for Minecraft authenticating and launching.</strong>
+</h3>
 
-[version]: https://img.shields.io/maven-central/v/fr.varchar-dev/varlib.svg?label=Version
-![version]
-### To add the library to your Gradle project:
-
-```groovy
+## Installation
+### With Gradle
+Add mavenCentral in your repositories:
+```java
 repositories {
     mavenCentral()
 }
 ```
-
-```groovy
+And add VarLib in your dependencies:
+```java
 dependencies {
     implementation 'fr.varchar-dev:varlib:VERSION'
 }
 ```
 
-### To add the library to your Maven project:
-
+### With Maven
 ```xml
 <dependency>
     <groupId>fr.varchar-dev</groupId>
@@ -26,92 +48,76 @@ dependencies {
 </dependency>
 ```
 
-# Authentication
-
+## Authentication
 ### Authenticate
-
+Create new object AuthenticateResponse with username and password:
 ```java
 AuthenticateResponse authenticateResponse = Authenticator.authenticate(username, password);
 ```
 
-### Refresh 
-
+### Refresh
+Create new object RefreshResponse with accessToken and clientToken:
 ```java
 RefreshResponse refreshResponse = Authenticator.refresh(accessToken, clientToken);
 ```
 
-### You can add these informations to a GameAuthenticator
-
+### Add information to launch
+Create new object GameAuthenticator:
 ```java
 GameAuthenticator gameAuthenticator = new GameAuthenticator(authenticateResponse.getSelectedProfile().getName(), authenticateResponse.getAccessToken(), authenticateResponse.getSelectedProfile().getId());
 ```
 
-# Launching
-
-### Without Forge
-
+## Launch
+## With Minecraft Vanilla
 ```java
-GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.VANILLA, FolderType.FLOW_UPDATER);
+AbstractGameLauncherBuilder launcherBuilder = new GameLauncherVanillaBuilder(folder)
+     .setVersion("1.12")
+     .setVersionType(VersionType.VERSION_1_8_HIGHER)   
+     .setFolderType(folderType)
+     .setGameAuthenticator(gameAuthenticator)
 ```
 
-### With Forge 1.13 higher
-
+## With Minecraft Forge
 ```java
-GameLauncher gameLauncher = new GameLauncher("YourDir", "1.16", VersionType.VERSION_1_13_HIGHER, Type.FORGE, FolderType.FLOW_UPDATER, "34.1.23", "1.16.3", "20200911.084530");
+AbstractGameLauncherBuilder gamelauncher = new GameLauncherForgeBuilder(folder)
+     .setVersion("1.16")
+     .setVersionType(VersionType.VERSION_1_13_HIGHER)   
+     .setFolderType(folderType)
+     .setGameAuthenticator(gameAuthenticator)
 ```
 
-### Add vm arguments (optional)
+if your version equal 1.13 or higher, you have to set FML informations 
 
+### Launch
 ```java
-gameLauncher.getVmArgs().addAll(Arrays.asList("YourArg"));
+launcherBuilder.build().launch();
 ```
 
-### Launch the game
-
+## Logger
+### Init
+Create new object Logger with yourServerName:
 ```java
-gameLauncher.launch(gameAuthenticator);
-```
-
-# Bootstrap 
-
-### Use a bootStrap object
-
-Warning : you have to name your bootstrap file : launcher.jar
-
-```java
-BootStrap bootStrap = new BootStrap("yourGameDir", "bootstrapDirOnGameDir");
-```
-
-### And launch it
-
-```java
-bootStrap.launch();
-```
-
-# Logging (optional)
-```
 Logger logger = new Logger("yourServerName");
 ```
 
-### Normal log
-
+### Log
 ```java
 logger.log("message");
 ```
 
 ### Log with color
-
-#### Warning : the import for Color's class is ``fr.varchar.varlib.util.logger.Color;``
-
+Warning: the import for Color's class is `fr.varchar.varlib.util.logger.Color;`!
 ```java
 logger.log("message", Color.RED);
 ```
 
-### LogError
-
+### Error
 ```java
 logger.logError("yourError");
 ```
 
-# Join the discord
-Don't hesitate to star the repo and join the [discord](https://discord.gg/CjfZQye3GV) <3
+## Discord
+**You can join our [Discord](https://discord.gg/CjfZQye3GV)!**
+
+## License
+**[VarLib](https://github.com/Pierre-development/VarLib/) | [MIT License](https://github.com/Pierre-development/VarLib/blob/master/LICENSE)**

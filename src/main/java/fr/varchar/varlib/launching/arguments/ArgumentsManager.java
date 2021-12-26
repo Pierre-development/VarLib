@@ -58,10 +58,12 @@ public class ArgumentsManager extends AbstractArguments {
         args.add(gameLauncher.getGameAuthenticator().getUuId());
 
         if (gameLauncher.getType() == Type.FORGE) {
+            if(gameLauncher.getVersionType() != VersionType.VERSION_1_13_HIGHER) {
+                args.add("--tweakClass");
+            }
             if (gameLauncher.getVersionType() == VersionType.VERSION_1_7_10) {
                 args.add("cpw.mods.fml.common.launcher.FMLTweaker");
             } else if(gameLauncher.getVersionType() == VersionType.VERSION_1_8_HIGHER) {
-                args.add("--tweakClass");
                 args.add("net.minecraftforge.fml.common.launcher.FMLTweaker");
             } else if (gameLauncher.getVersionType() == VersionType.VERSION_1_13_HIGHER) {
                 args.add("--launchTarget");

@@ -24,7 +24,13 @@ artifacts {
 }
 
 dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:+'
+    testImplementation 'fr.flowarg:flowupdater:+'
     implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 publishing {
