@@ -9,6 +9,10 @@
         <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Uses git">
     </a>
     <br>
+    <a href="https://discord.gg/CjfZQye3GV">
+        <img alt="Discord" src="https://img.shields.io/discord/846384448215056414?color=%235662f6&label=Our%20Discord&style=for-the-badge">
+    <a/>
+    <br>
     <a href="https://search.maven.org/artifact/fr.varchar-dev/varlib">
         <img src="https://img.shields.io/maven-central/v/fr.varchar-dev/varlib.svg?style=for-the-badge" alt="Uses git">
     </a>
@@ -72,21 +76,21 @@ GameAuthenticator gameAuthenticator = new GameAuthenticator(authenticateResponse
 ```java
 AbstractGameLauncherBuilder launcherBuilder = new GameLauncherVanillaBuilder(folder)
      .setVersion("1.12")
-     .setVersionType(VersionType.VERSION_1_8_HIGHER)   
+     .setVersionType(VersionType.VERSION_1_8_HIGHER)
      .setFolderType(folderType)
-     .setGameAuthenticator(gameAuthenticator)
+     .setGameAuthenticator(gameAuthenticator);
 ```
 
 ## With Minecraft Forge
 ```java
 AbstractGameLauncherBuilder gamelauncher = new GameLauncherForgeBuilder(folder, installerJsonFile)
      .setVersion("1.16")
-     .setVersionType(VersionType.VERSION_1_13_HIGHER)   
+     .setVersionType(VersionType.VERSION_1_13_HIGHER)
      .setFolderType(folderType)
-     .setGameAuthenticator(gameAuthenticator)
+     .setGameAuthenticator(gameAuthenticator);
 ```
 
-if your version equal 1.13 or higher, you have to specify your forge json installer like 1.16.5-forge-36.1.0.json
+if your version equal 1.13 or higher, you have to specify your forge json installer like `1.16.5-forge-36.1.0.json`
 
 ### Launch
 ```java
@@ -100,6 +104,10 @@ Create new object Logger with yourServerName:
 Logger logger = new Logger("yourServerName");
 ```
 
+### Add the logger to builder
+```java
+launcherBuilder.setLogger(logger);
+```
 ### Log
 ```java
 logger.log("message");
@@ -114,6 +122,18 @@ logger.log("message", Color.RED);
 ### Error
 ```java
 logger.logError("yourError");
+```
+
+## Optional
+### Add VM arguments
+```java
+launcherBuilder.addVMArgument("YourArg");
+```
+
+### Change the Java path
+The library run the game with `java` command, you can change the Java path like this
+```java
+launcherBuilder.setJavaPath("YourPath");
 ```
 
 ## Discord
