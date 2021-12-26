@@ -79,14 +79,14 @@ AbstractGameLauncherBuilder launcherBuilder = new GameLauncherVanillaBuilder(fol
 
 ## With Minecraft Forge
 ```java
-AbstractGameLauncherBuilder gamelauncher = new GameLauncherForgeBuilder(folder)
+AbstractGameLauncherBuilder gamelauncher = new GameLauncherForgeBuilder(folder, installerJsonFile)
      .setVersion("1.16")
      .setVersionType(VersionType.VERSION_1_13_HIGHER)   
      .setFolderType(folderType)
      .setGameAuthenticator(gameAuthenticator)
 ```
 
-if your version equal 1.13 or higher, you have to set FML informations 
+if your version equal 1.13 or higher, you have to specify your forge json installer like 1.16.5-forge-36.1.0.json
 
 ### Launch
 ```java
