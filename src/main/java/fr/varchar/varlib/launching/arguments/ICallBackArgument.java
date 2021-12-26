@@ -2,6 +2,6 @@ package fr.varchar.varlib.launching.arguments;
 
 import java.util.List;
 
-public interface ICallBackArgument {
+public interface CallBackArgument {
     List<String> vmArgs();
 }
