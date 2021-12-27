@@ -1,7 +1,7 @@
 package fr.varchar.varlib.launching.builder;
 
 import fr.varchar.varlib.authenticate.mojang.GameAuthenticator;
-import fr.varchar.varlib.launching.FolderType;
+import fr.varchar.varlib.launching.types.FolderType;
 import fr.varchar.varlib.launching.GameLauncher;
 import fr.varchar.varlib.launching.arguments.ArgumentsManager;
 import fr.varchar.varlib.launching.arguments.ICallBackArgument;
@@ -27,6 +27,7 @@ public abstract class AbstractGameLauncherBuilder {
     protected final ArgumentsManager argumentsManager = new ArgumentsManager();
     protected ICallBackArgument callBackArgument = () -> null;
     protected Logger logger;
+    protected String assetsDir, librariesDir, nativesDir, minecraftClient;
 
 
     /**

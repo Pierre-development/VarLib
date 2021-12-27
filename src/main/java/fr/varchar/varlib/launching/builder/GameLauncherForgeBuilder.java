@@ -1,7 +1,7 @@
 package fr.varchar.varlib.launching.builder;
 
-import fr.varchar.varlib.launching.FolderType;
 import fr.varchar.varlib.launching.GameLauncher;
+import fr.varchar.varlib.launching.types.FolderType;
 import fr.varchar.varlib.launching.types.Type;
 import fr.varchar.varlib.launching.types.VersionType;
 import fr.varchar.varlib.util.Util;

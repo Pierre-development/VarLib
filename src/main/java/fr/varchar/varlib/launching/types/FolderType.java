@@ -1,17 +1,17 @@
-package fr.varchar.varlib.launching;
+package fr.varchar.varlib.launching.types;
 
-public class FolderType {
+public enum FolderType {
 
 
-    public static final FolderType S_UPDATE = new FolderType("assets", "natives", "libs", "minecraft.jar");
-    public static final FolderType FLOW_UPDATER = new FolderType("assets", "natives", "libraries", "client.jar");
+    S_UPDATE("assets", "natives", "libs", "minecraft.jar"),
+    FLOW_UPDATER("assets", "natives", "libraries", "client.jar");
 
     private final String assetsDir;
     private final String nativesDir;
     private final String librariesDir;
     private final String minecraftClient;
 
-    public FolderType(String assetsDir, String nativesDir, String librariesDir, String minecraftClient) {
+    FolderType(String assetsDir, String nativesDir, String librariesDir, String minecraftClient) {
         this.assetsDir = assetsDir;
         this.nativesDir = nativesDir;
         this.librariesDir = librariesDir;

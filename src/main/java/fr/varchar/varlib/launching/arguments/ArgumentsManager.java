@@ -33,14 +33,13 @@ public class ArgumentsManager extends AbstractArguments {
         args.add("--accessToken");
         args.add(gameLauncher.getGameAuthenticator().getAccessToken());
 
-        if(gameLauncher.getVersionType() != VersionType.VERSION_1_13_HIGHER) {
             if (gameLauncher.getGameAuthenticator().getClientToken() != null) {
                 args.add("--clientToken");
                 args.add(gameLauncher.getGameAuthenticator().getClientToken());
             }
-            args.add("--userProperties");
-            args.add("{}");
-        }
+        args.add("--userProperties");
+        args.add("{}");
+
 
         args.add("--version");
         args.add(gameLauncher.getVersion());
@@ -73,13 +72,13 @@ public class ArgumentsManager extends AbstractArguments {
                 args.add(gameLauncher.getFmlForgeVersion());
 
                 args.add("--fml.mcVersion");
-                args.add(gameLauncher.getFmlmcVersion());
+                args.add(gameLauncher.getFmlMcVersion());
 
                 args.add("--fml.forgeGroup");
                 args.add("net.minecraftforge");
 
                 args.add("--fml.mcpVersion");
-                args.add(gameLauncher.getFmlmcpVersion());
+                args.add(gameLauncher.getFmlMcpVersion());
             }
         }
         return args;
